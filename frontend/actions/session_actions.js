@@ -21,21 +21,21 @@ const receiveSessionErrors = (errors) => ({
 export const signup = (user) => (dispatch) => (
   SessionAPIUtil.signup(user).then(
     (user) => dispatch(receiveCurrentUser(user)),
-    (errors) => dispatch(receiveSessionErrors(errors))
+    (errors) => dispatch(receiveSessionErrors(errors.responseJSON))
   )
 );
 
 export const login = (user) => (dispatch) => (
   SessionAPIUtil.login(user).then(
     (user) => dispatch(receiveCurrentUser(user)),
-    (errors) => dispatch(receiveSessionErrors(errors))
+    (errors) => dispatch(receiveSessionErrors(errors.responseJSON))
   )
 );
 
 export const logout = () => (dispatch) => (
   SessionAPIUtil.logout().then(
     () => dispatch(logoutCurrentUser()),
-    (errors) => dispatch(receiveSessionErrors(errors))
+    (errors) => dispatch(receiveSessionErrors(errors.responseJSON))
   )
 );
 

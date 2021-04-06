@@ -24,25 +24,51 @@ class SessionForm extends React.Component {
     )
   }
 
+  displayErrors(){
+    return (
+      this.props.errors.map((error, i) => {
+        <li key={i}>
+          {error}
+        </li>
+      })
+    )
+  }
+
   render(){
     let switchMsg = 'New to Kelp?';
     let prompt = 'Log in to Kelp';
+    let usernameField = '';
+    let locationField = '';
     if (this.props.formType === 'Sign Up') {
       switchMsg = "Already on Kelp?";
-      prompt = 'Sign up for Kelp'
+      prompt = 'Sign up for Kelp';
+      usernameField = (
+        <label>
+          Username
+          <input
+            type="text"
+            onChange={this.handleInput("username")}
+            value={this.state.username}
+          />
+        </label>
+      );
+      locationField = (
+        <label>
+          Location
+          <input
+            type="text"
+            onChange={this.handleInput("location")}
+            value={this.state.location}
+          />
+        </label>
+      );
     }
     return (
       <div>
+        <ul>{this.displayErrors()}</ul>
         <header>{prompt}</header>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Username
-            <input
-              type="text"
-              onChange={this.handleInput("username")}
-              value={this.state.username}
-            />
-          </label>
+          {usernameField}
           <br />
           <label>
             Email
@@ -56,20 +82,13 @@ class SessionForm extends React.Component {
           <label>
             Password
             <input
-              type="text"
+              type="password"
               onChange={this.handleInput("password")}
               value={this.state.password}
             />
           </label>
           <br />
-          <label>
-            Location
-            <input
-              type="text"
-              onChange={this.handleInput("location")}
-              value={this.state.location}
-            />
-          </label>
+          {locationField}
           <br />
           <button type="submit">{this.props.formType}</button>
         </form>
