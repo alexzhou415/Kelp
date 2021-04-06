@@ -7,6 +7,7 @@ const Header = ({currentUser,logout}) => {
     <nav className = "login-signup">
       <Link to='/login'><button>Log In</button></Link>
       <Link to='/signup'><button>Sign Up</button></Link>
+      <Link to='/demo'><button>Demo Log In</button></Link>
     </nav>
   );
 
