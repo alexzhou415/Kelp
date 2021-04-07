@@ -1,13 +1,27 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+
 const Header = ({currentUser,logout}) => {
   const sessionLinks = () => (
-    
-    <nav className = "login-signup">
-      <Link to='/login'><button>Log In</button></Link>
-      <Link to='/signup'><button>Sign Up</button></Link>
-      <Link to='/demo'><button>Demo Log In</button></Link>
+    <nav className="login-signup">
+      <ul className="login-button-list">
+        <li>
+          <Link to="/login">
+            <button>Log In</button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/demo">
+            <button>Demo Log In</button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/signup">
+            <button>Sign Up</button>
+          </Link>
+        </li>
+      </ul>
     </nav>
   );
 
