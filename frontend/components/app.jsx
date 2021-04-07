@@ -6,12 +6,13 @@ import HeaderContainer from './header/header_container';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import DemoLogin from './session_form/demo_login_container';
 import NotFound from './not_found';
+import Logo from '../../app/assets/images/logo_transparent.png'
 
 const App = () => (
   <div>
     <header>
       <Link to="/" className="logo-link">
-        <button>Kelp</button>
+        <img src={Logo} alt=""/>
       </Link>
     </header>
     <Switch>
