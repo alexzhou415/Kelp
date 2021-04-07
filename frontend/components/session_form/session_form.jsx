@@ -17,6 +17,10 @@ class SessionForm extends React.Component {
     this.props.clearErrors();
   }
 
+  componentDidMount(){
+    if (this.props.formType === 'Demo') this.props.submitForm(this.props.user);
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.submitForm(this.state);
