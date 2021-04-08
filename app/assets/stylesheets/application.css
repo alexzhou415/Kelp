@@ -89,6 +89,10 @@ select {
   }
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
  /* .splash-logo {
    width: 10%;
  } */
@@ -96,14 +100,19 @@ select {
  .splash-logo-container {
    display: flex;
    justify-content: center;
-   top: 15%;
+   top: 100px;
    position: absolute;
    width: 100%;
  }
 
  .splash-logo-link{
   display: flex;
+  justify-content: center;
   width: 13%;
+ }
+
+ .splash-logo {
+   min-width: 175px;
  }
 
  .login-logo-container {
@@ -128,8 +137,8 @@ select {
    display: flex;
    flex-direction: column;
    position: absolute;
-   min-width: 300px;
-   top: 150px;
+   width: 300px;
+   top: 170px;
    left: 30%;
    
  }
@@ -144,7 +153,7 @@ select {
    display: flex;
    flex-direction: column;
    font-weight: 600;
-   font-family: 'Open Sans', sans-serif;
+   
    font-size: 14px;
  }
  .login-input {
@@ -160,7 +169,7 @@ select {
    margin-bottom: 10px;
    font-weight: bolder;
    font-size: 22px;
-   font-family: 'Open Sans', sans-serif;
+   
  }
 
  .login-button-list {
@@ -170,15 +179,27 @@ select {
    justify-content: flex-end;
  }
 
- .login-button-list button {
-  margin-left: 20px;
+ .login-button-list button, .logout-bar button {
   height: 40px;
-  font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   min-width: 80px;
   border-radius: 4px;
   border: 1px solid gray;
   background-color: transparent;
+ }
+
+ .login-button-list a, .logout-bar button {
+  margin-left: 20px;
+ }
+
+ .logout-bar {
+   display: flex;
+   justify-content: flex-end;
+   margin: 16px 30px;
+ }
+
+ .logout-bar div {
+   align-self: center;
  }
 
  .signup-link button {
@@ -203,7 +224,7 @@ select {
    min-height: 37px;
    color: indigo;
    font-weight: bold;
-   font-family: 'Open Sans', sans-serif;
+   
  }
 
  .switch-link {
@@ -216,5 +237,60 @@ select {
    align-self: flex-end;
    font-size: 12px;
    margin-top: 8px;
-   font-family: 'Open Sans', sans-serif;
+   
+ }
+
+ button:hover {
+   cursor: pointer;
+ }
+
+ .errors-list {
+   position: absolute;
+   list-style: none;
+   width: 100%;
+   left: 27.5%;
+ }
+
+ .errors-list li{
+   font-size: 13px;
+ }
+ .username-error {
+   position: absolute;
+   top: 250px;
+ }
+ .email-error{
+   position: absolute;
+   top: 324px;
+ }
+
+ .password-error {
+   position: absolute;
+   top: 472px;
+ }
+
+ .location-error {
+   position: absolute;
+   top: 398px;
+ }
+
+ .login-error-container {
+   position: absolute;
+   display: flex;
+   width: 100%;
+   justify-content: center;
+   list-style: none;
+ }
+
+ .login-error {
+   margin: auto;
+   background-color: #ffd2d2;
+   position: relative;
+   top: 71.19px;
+   height: 50px;
+   width: 750px;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   padding-left: 15px;
+   font-size: 15px;
  }

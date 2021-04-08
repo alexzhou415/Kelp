@@ -31,18 +31,39 @@ class SessionForm extends React.Component {
     return (e) => this.setState({ [field]: e.target.value });
   }
 
-  displayErrors() {
-    return this.props.errors.map((error, i) => {
-      <li key={i}>{error}</li>;
-    });
-  }
+  // displayErrors() {
+  //   return this.props.errors.map((error, i) => {
+  //     <li key={i}>{error}</li>;
+  //   });
+  // }
 
   renderErrors() {
+    let error = this.props.errors[0]
+    error ||= "bigchungus"
+    if (error.includes("incorrect")) {
+      return (
+        <ul className="login-error-container">
+          <li className="login-error" >
+            {this.props.errors}.
+          </li>
+        </ul>
+      );
+    }
+    error = this.props.errors[0];
+    error ||= 'fsdsdf'
+    let item;
+    if (error.includes("Username"))
+    item = <li className="username-error">{error}.</li>
+    if (error.includes("Email"))
+    item = <li className="email-error">{error}.</li>
+    if (error.includes("Password"))
+    item = <li className="password-error">{error}.</li>
+    if (error.includes("Location"))
+    item = <li className="location-error">{error}.</li>
+        
     return (
       <ul className="errors-list">
-        {this.props.errors.map((error, i) => (
-          <li className="login-errors" key={`error-${i}`}>{error}</li>
-        ))}
+        {item}
       </ul>
     );
   }
@@ -89,13 +110,11 @@ class SessionForm extends React.Component {
             <img className="login-logo" src={logo} alt="" />
           </Link>
         </div>
-
+        {this.renderErrors()}
         <div className="login-box">
-          <div className="login-errors-box">
-            <ul>{this.renderErrors()}</ul>
-          </div>
+          <div className="login-errors-box"></div>
           <h2 className="login-prompt">{prompt}</h2>
-          <form onSubmit={this.handleSubmit} className="login-form-box">
+          <form className="login-form-box">
             <div className="login-form">
               {usernameField}
               {breaks}
@@ -110,6 +129,8 @@ class SessionForm extends React.Component {
                 />
               </label>
               <br />
+              {locationField}
+              {breaks}
               <label className="login-field-label">
                 Password
                 <br />
@@ -121,9 +142,7 @@ class SessionForm extends React.Component {
                 />
               </label>
               <br />
-              {locationField}
-              {breaks}
-              <button type="submit" className="session-submit">
+              <button onClick={this.handleSubmit} className="session-submit">
                 {this.props.formType}
               </button>
             </div>

@@ -362,7 +362,7 @@ var Header = function Header(_ref) {
   var logoutLink = function logoutLink() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
       className: "logout-bar"
-    }, currentUser.username, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, currentUser.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
       className: "logout-button",
       onClick: logout
     }, "Log Out"));
@@ -428,7 +428,7 @@ __webpack_require__.r(__webpack_exports__);
 var NotFound = function NotFound() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "not-found-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
     className: "not-found-header"
   }, "404 error. Shiver me timbers! The page you're looking for cannot be found."));
 };
@@ -654,28 +654,44 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.target.value));
       };
-    }
-  }, {
-    key: "displayErrors",
-    value: function displayErrors() {
-      return this.props.errors.map(function (error, i) {
-        /*#__PURE__*/
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-          key: i
-        }, error);
-      });
-    }
+    } // displayErrors() {
+    //   return this.props.errors.map((error, i) => {
+    //     <li key={i}>{error}</li>;
+    //   });
+    // }
+
   }, {
     key: "renderErrors",
     value: function renderErrors() {
+      var error = this.props.errors[0];
+      error || (error = "bigchungus");
+
+      if (error.includes("incorrect")) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+          className: "login-error-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+          className: "login-error"
+        }, this.props.errors, "."));
+      }
+
+      error = this.props.errors[0];
+      error || (error = 'fsdsdf');
+      var item;
+      if (error.includes("Username")) item = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        className: "username-error"
+      }, error, ".");
+      if (error.includes("Email")) item = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        className: "email-error"
+      }, error, ".");
+      if (error.includes("Password")) item = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        className: "password-error"
+      }, error, ".");
+      if (error.includes("Location")) item = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        className: "location-error"
+      }, error, ".");
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "errors-list"
-      }, this.props.errors.map(function (error, i) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-          className: "login-errors",
-          key: "error-".concat(i)
-        }, error);
-      }));
+      }, item);
     }
   }, {
     key: "render",
@@ -719,14 +735,13 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         className: "login-logo",
         src: _app_assets_images_logo_transparent_png__WEBPACK_IMPORTED_MODULE_1__.default,
         alt: ""
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }))), this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "login-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "login-errors-box"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, this.renderErrors())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
         className: "login-prompt"
       }, prompt), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-        onSubmit: this.handleSubmit,
         className: "login-form-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "login-form"
@@ -737,15 +752,15 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.handleInput("email"),
         value: this.state.email,
         className: "login-input"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), locationField, breaks, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "login-field-label"
       }, "Password", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "password",
         onChange: this.handleInput("password"),
         value: this.state.password,
         className: "login-input"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), locationField, breaks, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        type: "submit",
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: this.handleSubmit,
         className: "session-submit"
       }, this.props.formType))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "switch-forms"

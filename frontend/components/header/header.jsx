@@ -26,10 +26,11 @@ const Header = ({currentUser,logout}) => {
   );
 
   const logoutLink = () => (
-    
     <nav className="logout-bar">
-      {currentUser.username}
-      <button className='logout-button' onClick={logout}>Log Out</button>
+      <div>{currentUser.username}</div>
+      <button className="logout-button" onClick={logout}>
+        Log Out
+      </button>
     </nav>
   );
 
