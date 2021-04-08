@@ -253,24 +253,30 @@ body {
 
  .errors-list li{
    font-size: 13px;
+   position: absolute;
+   border: 1px solid gray;
+   border-radius: 3px ;
+   height: 28px;
+   background-color: white;
+   z-index: 5;
+   display: flex;
+   align-items: center;
+   padding: 10px;
  }
  .username-error {
-   position: absolute;
-   top: 250px;
+   
+   top: 249px;
  }
  .email-error{
-   position: absolute;
    top: 324px;
  }
 
  .password-error {
-   position: absolute;
-   top: 472px;
+   top: 474px;
  }
 
  .location-error {
-   position: absolute;
-   top: 398px;
+   top: 399px;
  }
 
  .login-error-container {
@@ -279,13 +285,13 @@ body {
    width: 100%;
    justify-content: center;
    list-style: none;
+   top: 71.19px;
  }
 
  .login-error {
    margin: auto;
    background-color: #ffd2d2;
    position: relative;
-   top: 71.19px;
    height: 50px;
    width: 750px;
    display: flex;
