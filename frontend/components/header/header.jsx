@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 
-const Header = ({currentUser,logout}) => {
+const Header = ({currentUser,logout,submitForm}) => {
   const sessionLinks = () => (
     <nav className="login-signup">
       <ul className="login-button-list">
@@ -12,9 +12,9 @@ const Header = ({currentUser,logout}) => {
           </Link>
         </li>
         <li>
-          <Link to="/demo">
-            <button>Demo Log In</button>
-          </Link>
+          {/* <Link to="/demo"> */}
+            <button className="demo-login" onClick={submitForm}>Demo Log In</button>
+          {/* </Link> */}
         </li>
         <li>
           <Link className="signup-link" to="/signup">

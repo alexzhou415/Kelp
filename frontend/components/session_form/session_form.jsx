@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "../../../app/assets/images/logo_transparent.png";
+import sb from "../../../app/assets/images/sb.jpeg";
 import { Link } from "react-router-dom";
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -18,9 +20,9 @@ class SessionForm extends React.Component {
     this.props.clearErrors();
   }
 
-  componentDidMount() {
-    if (this.props.formType === "Demo") this.props.submitForm(this.props.user);
-  }
+  // componentDidMount() {
+  //   if (this.props.formType === "Demo") this.props.submitForm(this.props.user);
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -110,11 +112,12 @@ class SessionForm extends React.Component {
             <img className="login-logo" src={logo} alt="" />
           </Link>
         </div>
-        {this.renderErrors()}
+
         <div className="login-box">
-          <div className="login-errors-box"></div>
+          {/* <div className="login-errors-box"></div> */}
           <h2 className="login-prompt">{prompt}</h2>
           <form className="login-form-box">
+            {this.renderErrors()}
             <div className="login-form">
               {usernameField}
               {breaks}
@@ -152,6 +155,7 @@ class SessionForm extends React.Component {
             {switchMsg} {this.props.link}
           </div>
         </div>
+        <img className="login-image" src={sb} alt=""/>
       </div>
     );
   }

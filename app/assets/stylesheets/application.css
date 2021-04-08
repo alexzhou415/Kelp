@@ -115,6 +115,12 @@ body {
    min-width: 175px;
  }
 
+ .login-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
  .login-logo-container {
    display: flex;
    justify-content: center;
@@ -136,11 +142,19 @@ body {
  .login-box {
    display: flex;
    flex-direction: column;
-   position: absolute;
-   width: 300px;
-   top: 170px;
-   left: 30%;
-   
+   position: relative;
+   min-width: 300px;
+ }
+
+ .login-image {
+   max-width: 300px;
+   position: relative;
+   z-index: -1;
+ }
+
+ .login-box, .login-image {
+   top: 120px;
+   margin: 20px;
  }
 
  .login-form {
@@ -188,7 +202,7 @@ body {
   background-color: transparent;
  }
 
- .login-button-list a, .logout-bar button {
+ .login-button-list a, .login-button-list .demo-login, .logout-bar button {
   margin-left: 20px;
  }
 
@@ -248,7 +262,9 @@ body {
    position: absolute;
    list-style: none;
    width: 100%;
-   left: 27.5%;
+   /* left: 0; */
+   display: flex;
+   justify-content: flex-start;
  }
 
  .errors-list li{
@@ -262,30 +278,37 @@ body {
    display: flex;
    align-items: center;
    padding: 10px;
+   min-width: 155px;
  }
  .username-error {
-   
-   top: 249px;
+   left: 0px;
+   top: 35px;
  }
  .email-error{
-   top: 324px;
+   left: 0px;
+   top: 110px;
  }
 
  .password-error {
-   top: 474px;
+   width: 320px;
+   left: 0px;
+   top: 260px;
  }
 
  .location-error {
-   top: 399px;
+   left: 0px;
+   top: 185px;
  }
 
  .login-error-container {
    position: absolute;
    display: flex;
-   width: 100%;
+   width: 300%;
    justify-content: center;
+   align-self: flex-start;
    list-style: none;
-   top: 71.19px;
+   top: -130px;
+   left: -155px;
  }
 
  .login-error {
@@ -298,5 +321,6 @@ body {
    align-items: center;
    justify-content: flex-start;
    padding-left: 15px;
+   border-radius: 3px;
    font-size: 15px;
  }
