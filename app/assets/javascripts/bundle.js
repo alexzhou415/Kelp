@@ -354,6 +354,7 @@ var Header = function Header(_ref) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Log In"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
       to: "/demo"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Demo Log In"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      className: "signup-link",
       to: "/signup"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Sign Up")))));
   };
@@ -671,6 +672,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         className: "errors-list"
       }, this.props.errors.map(function (error, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+          className: "login-errors",
           key: "error-".concat(i)
         }, error);
       }));
@@ -682,22 +684,28 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       var prompt = "Log in to Kelp";
       var usernameField = "";
       var locationField = "";
+      var breaks;
 
       if (this.props.formType === "Sign Up") {
         switchMsg = "Already on Kelp?";
         prompt = "Sign up for Kelp";
-        usernameField = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Username", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        breaks = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null);
+        usernameField = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+          className: "login-field-label"
+        }, "Username", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
           type: "text",
           onChange: this.handleInput("username"),
           value: this.state.username,
           className: "login-input"
         }));
-        locationField = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Location", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        locationField = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+          className: "login-field-label"
+        }, "Location", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
           type: "text",
           onChange: this.handleInput("location"),
           value: this.state.location,
           className: "login-input"
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null));
+        })));
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -713,27 +721,35 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         alt: ""
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "login-box"
-      }, this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "login-errors-box"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, this.renderErrors())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
         className: "login-prompt"
       }, prompt), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "login-form-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "login-form"
-      }, usernameField, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Email", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      }, usernameField, breaks, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        className: "login-field-label"
+      }, "Email", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
         onChange: this.handleInput("email"),
         value: this.state.email,
         className: "login-input"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Password", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+        className: "login-field-label"
+      }, "Password", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "password",
         onChange: this.handleInput("password"),
         value: this.state.password,
         className: "login-input"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), locationField, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), locationField, breaks, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         type: "submit",
         className: "session-submit"
       }, this.props.formType))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "switch-forms"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "switch-message"
       }, switchMsg, " ", this.props.link)));
     }
@@ -773,7 +789,8 @@ var mapSTP = function mapSTP(state) {
     errors: state.errors.session,
     formType: 'Sign Up',
     link: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-      to: "/login"
+      to: "/login",
+      className: "switch-link"
     }, "Log In")
   };
 };

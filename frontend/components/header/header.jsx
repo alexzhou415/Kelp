@@ -17,7 +17,7 @@ const Header = ({currentUser,logout}) => {
           </Link>
         </li>
         <li>
-          <Link to="/signup">
+          <Link className="signup-link" to="/signup">
             <button>Sign Up</button>
           </Link>
         </li>

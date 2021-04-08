@@ -7,7 +7,7 @@ import {signup, clearErrors} from '../../actions/session_actions';
 const mapSTP = (state) => ({
   errors: state.errors.session,
   formType: 'Sign Up',
-  link: <Link to="/login">Log In</Link>
+  link: <Link to="/login" className="switch-link">Log In</Link>
 });
 
 const mapDTP = (dispatch) => ({

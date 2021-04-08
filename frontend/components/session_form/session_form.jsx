@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
     return (
       <ul className="errors-list">
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
+          <li className="login-errors" key={`error-${i}`}>{error}</li>
         ))}
       </ul>
     );
@@ -52,12 +52,14 @@ class SessionForm extends React.Component {
     let prompt = "Log in to Kelp";
     let usernameField = "";
     let locationField = "";
+    let breaks;
     if (this.props.formType === "Sign Up") {
       switchMsg = "Already on Kelp?";
       prompt = "Sign up for Kelp";
+      breaks = <br/>;
       usernameField = (
-        <label>
-          Username
+        <label className="login-field-label">Username
+          <br />
           <input
             type="text"
             onChange={this.handleInput("username")}
@@ -68,7 +70,8 @@ class SessionForm extends React.Component {
       );
       locationField = (
         <div>
-          <label>Location
+          <label className="login-field-label">Location
+            <br />
             <input
               type="text"
               onChange={this.handleInput("location")}
@@ -76,7 +79,6 @@ class SessionForm extends React.Component {
               className="login-input"
             />
           </label>
-          <br />
         </div>
       );
     }
@@ -89,13 +91,17 @@ class SessionForm extends React.Component {
         </div>
 
         <div className="login-box">
-          {this.renderErrors()}
+          <div className="login-errors-box">
+            <ul>{this.renderErrors()}</ul>
+          </div>
           <h2 className="login-prompt">{prompt}</h2>
           <form onSubmit={this.handleSubmit} className="login-form-box">
             <div className="login-form">
               {usernameField}
-              <label>
+              {breaks}
+              <label className="login-field-label">
                 Email
+                <br />
                 <input
                   type="text"
                   onChange={this.handleInput("email")}
@@ -104,8 +110,9 @@ class SessionForm extends React.Component {
                 />
               </label>
               <br />
-              <label>
+              <label className="login-field-label">
                 Password
+                <br />
                 <input
                   type="password"
                   onChange={this.handleInput("password")}
@@ -115,12 +122,13 @@ class SessionForm extends React.Component {
               </label>
               <br />
               {locationField}
-              <br />
+              {breaks}
               <button type="submit" className="session-submit">
                 {this.props.formType}
               </button>
             </div>
           </form>
+          <div className="switch-forms"></div>
           <div className="switch-message">
             {switchMsg} {this.props.link}
           </div>

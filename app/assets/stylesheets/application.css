@@ -89,9 +89,9 @@ select {
   }
 }
 
- .splash-logo {
-   /* width: 10%; */
- }
+ /* .splash-logo {
+   width: 10%;
+ } */
 
  .splash-logo-container {
    display: flex;
@@ -104,10 +104,6 @@ select {
  .splash-logo-link{
   display: flex;
   width: 13%;
- }
-
- .login-page-container {
-   /* display: flex; */
  }
 
  .login-logo-container {
@@ -129,11 +125,42 @@ select {
  }
 
  .login-box {
-   display: block;
+   display: flex;
+   flex-direction: column;
    position: absolute;
-   /* min-width: 229px; */
-   top: 100px;
+   min-width: 300px;
+   top: 150px;
    left: 30%;
+   
+ }
+
+ .login-form {
+   display: flex;
+   flex-direction: column;
+ }
+
+ .login-field-label {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   font-weight: 600;
+   font-family: 'Open Sans', sans-serif;
+   font-size: 14px;
+ }
+ .login-input {
+   width: 100%;
+   border-radius: 3px;
+   border: 1px solid gray;
+   background-color: rgb(232, 240, 254);
+   height: 30px;
+ }
+
+ .login-prompt {
+   align-self: center;
+   margin-bottom: 10px;
+   font-weight: bolder;
+   font-size: 22px;
+   font-family: 'Open Sans', sans-serif;
  }
 
  .login-button-list {
@@ -143,8 +170,21 @@ select {
    justify-content: flex-end;
  }
 
- .login-button-list li {
+ .login-button-list button {
   margin-left: 20px;
+  height: 40px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  min-width: 80px;
+  border-radius: 4px;
+  border: 1px solid gray;
+  background-color: transparent;
+ }
+
+ .signup-link button {
+   background-color: aqua;
+   color: indigo;
+   border: 1px solid aqua;
  }
 
  .login-signup {
@@ -154,4 +194,27 @@ select {
 
  .login-prompt {
    color: indigo;
+ }
+
+ .session-submit {
+   background-color: aqua;
+   border: aqua;
+   border-radius: 3px;
+   min-height: 37px;
+   color: indigo;
+   font-weight: bold;
+   font-family: 'Open Sans', sans-serif;
+ }
+
+ .switch-link {
+   color: #0073bb;
+   text-decoration: none;
+ }
+
+ .switch-message {
+   color: #999;
+   align-self: flex-end;
+   font-size: 12px;
+   margin-top: 8px;
+   font-family: 'Open Sans', sans-serif;
  }
