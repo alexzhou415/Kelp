@@ -728,7 +728,8 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
           type: "text",
           onChange: this.handleInput("username"),
           value: this.state.username,
-          className: "login-input"
+          className: "login-input",
+          required: true
         }));
         locationField = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
           className: "login-field-label"
@@ -736,7 +737,8 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
           type: "text",
           onChange: this.handleInput("location"),
           value: this.state.location,
-          className: "login-input"
+          className: "login-input",
+          required: true
         })));
       }
 
@@ -756,6 +758,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
         className: "login-prompt"
       }, prompt), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+        onSubmit: this.handleSubmit,
         className: "login-form-box"
       }, this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "login-form"
@@ -765,16 +768,18 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         onChange: this.handleInput("email"),
         value: this.state.email,
-        className: "login-input"
+        className: "login-input",
+        required: true
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), locationField, breaks, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "login-field-label"
       }, "Password", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "password",
         onChange: this.handleInput("password"),
         value: this.state.password,
-        className: "login-input"
+        className: "login-input",
+        required: true
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        onClick: this.handleSubmit,
+        type: "submit",
         className: "session-submit"
       }, this.props.formType))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "switch-forms"

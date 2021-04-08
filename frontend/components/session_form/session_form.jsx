@@ -88,6 +88,7 @@ class SessionForm extends React.Component {
             onChange={this.handleInput("username")}
             value={this.state.username}
             className="login-input"
+            required
           />
         </label>
       );
@@ -100,6 +101,7 @@ class SessionForm extends React.Component {
               onChange={this.handleInput("location")}
               value={this.state.location}
               className="login-input"
+              required
             />
           </label>
         </div>
@@ -114,9 +116,8 @@ class SessionForm extends React.Component {
         </div>
 
         <div className="login-box">
-          {/* <div className="login-errors-box"></div> */}
           <h2 className="login-prompt">{prompt}</h2>
-          <form className="login-form-box">
+          <form onSubmit={this.handleSubmit} className="login-form-box">
             {this.renderErrors()}
             <div className="login-form">
               {usernameField}
@@ -129,6 +130,7 @@ class SessionForm extends React.Component {
                   onChange={this.handleInput("email")}
                   value={this.state.email}
                   className="login-input"
+                  required
                 />
               </label>
               <br />
@@ -142,10 +144,11 @@ class SessionForm extends React.Component {
                   onChange={this.handleInput("password")}
                   value={this.state.password}
                   className="login-input"
+                  required
                 />
               </label>
               <br />
-              <button onClick={this.handleSubmit} className="session-submit">
+              <button type="submit" className="session-submit">
                 {this.props.formType}
               </button>
             </div>
@@ -155,7 +158,7 @@ class SessionForm extends React.Component {
             {switchMsg} {this.props.link}
           </div>
         </div>
-        <img className="login-image" src={sb} alt=""/>
+        <img className="login-image" src={sb} alt="" />
       </div>
     );
   }
