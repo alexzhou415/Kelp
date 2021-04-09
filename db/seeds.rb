@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.delete_all
+User.destroy_all
+Business.destroy_all
 
 u1 = User.create!(username: 'DemoUser', email: 'demo@email.com', password:'12345678', location: 'Richmond, CA')
 u1 = User.create!(username: 'JRich', email: 'jjsmith@email.com', password:'hotdog64', location: 'San Diego, CA')
@@ -17,3 +18,11 @@ u1 = User.create!(username: 'KingJames', email: 'akidfromakron@email.com', passw
 u1 = User.create!(username: 'easymoneysnip', email: 'burner@email.com', password:'imachampion2x', location: 'Washington, DC')
 u1 = User.create!(username: 'DameTime', email: 'betterthancurry@email.com', password:'best3shooter', location: 'Oakland, CA')
 u1 = User.create!(username: '23donkey', email: 'draygreen@email.com', password:'naturalmotion', location: 'Saginaw, MI')
+krabs = User.create!(username: 'Eugene Krabs', email: 'mrkrabs@seamail.com', password:'moneybags', location: 'Bikini Bottom, PO')
+sponge = User.create!(username: 'Spongebob Squarepants', email: 'frycook@seamail.com', password:'icanboat', location: 'Bikini Bottom, PO')
+squid = User.create!(username: 'Squidward Tentacles', email: 'clarinetlover@seamail.com', password:'hatemyjob', location: 'Bikini Bottom, PO')
+star = User.create!(username: 'Patrick Star', email: 'pinhead@seamail.com', password:'ismayoaninstrument', location: 'Bikini Bottom, PO')
+puff = User.create!(username: 'Poppy Puff', email: 'mrspuff@seamail.com', password:'tetrodotoxin', location: 'Bikini Bottom, PO')
+
+Business.create!(name: 'Krusty Krab', creator_id: krabs.id, address: '831 Bottom Feeder Lane', rating: 0, category: "Restaurants")
+Business.create!(name: "Mrs. Puff's Boating School", creator_id: puff.id, address: '233 Barnacle Ave', rating: 0, category: "Education")
