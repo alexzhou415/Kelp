@@ -7,11 +7,10 @@ import FrontPage from './frontpage/frontpage';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import DemoLoginContainer from './session_form/demo_login_container';
 import NotFound from './not_found';
-import Logo from '../../app/assets/images/logo_transparent.png'
+
 
 const App = () => (
   <div>
-    
     <Switch>
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
@@ -20,9 +19,6 @@ const App = () => (
       <Route path="/404" component={NotFound}/>
       <Redirect to ="/404"/>
     </Switch>
-    <p>
-      
-    </p>
   </div>
 );
 
