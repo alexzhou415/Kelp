@@ -1065,6 +1065,69 @@ var configureStore = function configureStore() {
 
 /***/ }),
 
+/***/ "./frontend/util/business_api_util.js":
+/*!********************************************!*\
+  !*** ./frontend/util/business_api_util.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchBusinesses": () => (/* binding */ fetchBusinesses),
+/* harmony export */   "fetchBusiness": () => (/* binding */ fetchBusiness),
+/* harmony export */   "createBusiness": () => (/* binding */ createBusiness),
+/* harmony export */   "updateBusiness": () => (/* binding */ updateBusiness),
+/* harmony export */   "deleteBusiness": () => (/* binding */ deleteBusiness)
+/* harmony export */ });
+var fetchBusinesses = function fetchBusinesses() {
+  return $.ajax({
+    url: 'api/businesses',
+    error: function error(err) {
+      return console.log(err);
+    }
+  });
+};
+var fetchBusiness = function fetchBusiness(id) {
+  return $.ajax({
+    url: "api/businesses/".concat(id),
+    error: function error(err) {
+      return console.log(err);
+    }
+  });
+};
+var createBusiness = function createBusiness(business) {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/businesses',
+    data: business,
+    error: function error(err) {
+      return console.log(err);
+    }
+  });
+};
+var updateBusiness = function updateBusiness(business) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "api/businesses/".concat(business.id),
+    data: business,
+    error: function error(err) {
+      return console.log(err);
+    }
+  });
+};
+var deleteBusiness = function deleteBusiness(id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "api/businesses/".concat(id),
+    error: function error(err) {
+      return console.log(err);
+    }
+  });
+};
+
+/***/ }),
+
 /***/ "./frontend/util/route_util.jsx":
 /*!**************************************!*\
   !*** ./frontend/util/route_util.jsx ***!
@@ -37635,7 +37698,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _util_business_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/business_api_util */ "./frontend/util/business_api_util.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -37661,6 +37726,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.getState = store.getState;
+  window.fetchBusinesses = _util_business_api_util__WEBPACK_IMPORTED_MODULE_4__.fetchBusinesses;
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__.default, {
     store: store
   }), root);

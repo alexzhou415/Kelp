@@ -1,7 +1,8 @@
 class Api::BusinessesController < ApplicationController
 
   def index
-
+    @businesses = Business.all
+    render :index
   end
 
   def show
@@ -15,7 +16,7 @@ class Api::BusinessesController < ApplicationController
 
   def create
     @business = Business.new(business_params)
-    if @business.save!
+    if @business.save
       render :show
     else
       render json: @business.errors.full_messages, status: 422
@@ -23,20 +24,20 @@ class Api::BusinessesController < ApplicationController
   end
 
   def update
-    @business = current_user.businesses.find(params[:id])
+    @business = Business.find(params[:id])
     if @business && @business.update(business_params)
       render :show
     else
-      render json: ["Business page could not be updated"], status: 422
+      render json: ["Business page could not be updated"], status: 401
     end
   end
 
   def destroy
-    @business = current_user.businesses.find(params[:id])
-    if @business && @business.destroy()
-      render :index
+    @business = Business.find(params[:id])
+    if @business && @business.creator_id == current_user.id && @business.destroy()
+      render json: "meat"
     else
-      render json: ["Business page could not be removed"], status: 422
+      render json: ["Business page could not be removed"], status: 401
     end
   end
 
