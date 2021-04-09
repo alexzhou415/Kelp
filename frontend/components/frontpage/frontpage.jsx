@@ -1,5 +1,6 @@
 import React from 'react';
 import HeaderContainer from '../header/header_container';
+import BusinessIndexContainer from '../business/business_index_container';
 import {Link} from 'react-router-dom';
 
 import logo from "../../../app/assets/images/logo_transparent.png";
@@ -16,6 +17,9 @@ class FrontPage extends React.Component {
           <Link to="/" className="splash-logo-link">
             <img className="splash-logo" src={logo} alt="" />
           </Link>
+        </div>
+        <div className="frontpage-business-index">
+          <BusinessIndexContainer/>
         </div>
       </div>
     );

@@ -7,7 +7,7 @@ const mapSTP = (state) => ({
 })
 
 const mapDTP = (dispatch) => ({
-  fetchBusinesses: () => dispatch(fetchBusinesses)
+  fetchBusinesses: () => dispatch(fetchBusinesses())
 })
 
 export default connect(mapSTP,mapDTP)(BusinessIndex);
