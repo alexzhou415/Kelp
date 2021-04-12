@@ -3,7 +3,7 @@ import * as stars from "./business_rating_stars";
 import { Link } from "react-router-dom";
 
 const BusinessIndexItem = (props) => {
-
+  if (props.business.name=== 'Krabby Patties') return null;
   return (
     <Link
       to={`businesses/${props.business.id}`}

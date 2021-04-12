@@ -18,10 +18,16 @@ class FrontPage extends React.Component {
           <Link to="/" className="splash-logo-link">
             <img className="splash-logo" src={logo} alt="" />
           </Link>
-          <div className="splash-image-container"><img className="splash-image" src={splash} alt=""/></div>
+          <div className="splash-image-container">
+            <img
+              className="splash-image"
+              src="https://kelp-seeds.s3-us-west-1.amazonaws.com/krabby_patties.png"
+              alt=""
+            />
+          </div>
         </div>
         <div className="frontpage-business-index">
-          <BusinessIndexContainer/>
+          <BusinessIndexContainer />
         </div>
       </div>
     );

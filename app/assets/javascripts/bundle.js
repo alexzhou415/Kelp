@@ -502,6 +502,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var BusinessIndexItem = function BusinessIndexItem(props) {
+  if (props.business.name === 'Krabby Patties') return null;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
     to: "businesses/".concat(props.business.id),
     className: "business-index-link"
@@ -923,7 +924,7 @@ var FrontPage = /*#__PURE__*/function (_React$Component) {
         className: "splash-image-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "splash-image",
-        src: _app_assets_images_krabby_patties_png__WEBPACK_IMPORTED_MODULE_4__.default,
+        src: "https://kelp-seeds.s3-us-west-1.amazonaws.com/krabby_patties.png",
         alt: ""
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "frontpage-business-index"
