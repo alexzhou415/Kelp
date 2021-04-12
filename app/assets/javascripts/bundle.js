@@ -430,7 +430,6 @@ var BusinessIndex = /*#__PURE__*/function (_React$Component) {
           business: business
         }));
       });
-      console.log(this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "business-index"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1787,47 +1786,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var fetchBusinesses = function fetchBusinesses() {
   return $.ajax({
-    url: 'api/businesses',
-    error: function error(err) {
-      return console.log(err);
-    }
+    url: 'api/businesses'
   });
 };
 var fetchBusiness = function fetchBusiness(id) {
   return $.ajax({
-    url: "api/businesses/".concat(id),
-    error: function error(err) {
-      return console.log(err);
-    }
+    url: "api/businesses/".concat(id)
   });
 };
 var createBusiness = function createBusiness(business) {
   return $.ajax({
     method: 'POST',
     url: 'api/businesses',
-    data: business,
-    error: function error(err) {
-      return console.log(err);
-    }
+    data: business
   });
 };
 var updateBusiness = function updateBusiness(business) {
   return $.ajax({
     method: 'PATCH',
     url: "api/businesses/".concat(business.id),
-    data: business,
-    error: function error(err) {
-      return console.log(err);
-    }
+    data: business
   });
 };
 var deleteBusiness = function deleteBusiness(id) {
   return $.ajax({
     method: 'DELETE',
-    url: "api/businesses/".concat(id),
-    error: function error(err) {
-      return console.log(err);
-    }
+    url: "api/businesses/".concat(id)
   });
 };
 

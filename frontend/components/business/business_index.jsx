@@ -16,7 +16,6 @@ class BusinessIndex extends React.Component {
         <BusinessIndexItem business={business}/>
       </li>
     ));
-    console.log(this.props);
     return (
       <div className="business-index">
         <div className="hot-businesses">Cool Businesses in Bikini Bottom</div>
