@@ -332,3 +332,13 @@ button:hover {
 .business-index-list {
   display: flex;
 }
+
+.show-page-top-header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.show-page-logo-link {
+  height: 71.19px;
+  width: 71.19px;
+}
