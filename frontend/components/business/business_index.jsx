@@ -10,17 +10,16 @@ class BusinessIndex extends React.Component {
 
   render(){
       
-    const businesses = Object.values(this.props.businesses).map((business) => (
-      <li className="business-index-item" key={business.id}>
-        <BusinessIndexItem  business={business} />
+    const businesses = Object.values(this.props.businesses).map((business, i) => (
+      <li key={business.id} >
+        <BusinessIndexItem business={business}/>
       </li>
     ));
     
     return (
       <div className="business-index">
-        <ul className="business-index-list">
-          {businesses}
-        </ul>
+        <div className="hot-businesses">Cool Businesses in Bikini Bottom</div>
+        <ul className="business-index-list">{businesses}</ul>
       </div>
     );
   }

@@ -24,5 +24,5 @@ squid = User.create!(username: 'Squidward Tentacles', email: 'clarinetlover@seam
 star = User.create!(username: 'Patrick Star', email: 'pinhead@seamail.com', password:'ismayoaninstrument', location: 'Bikini Bottom, PO')
 puff = User.create!(username: 'Poppy Puff', email: 'mrspuff@seamail.com', password:'tetrodotoxin', location: 'Bikini Bottom, PO')
 
-Business.create!(name: 'Krusty Krab', creator_id: krabs.id, address: '831 Bottom Feeder Lane', rating: 0, category: "Restaurants")
-Business.create!(name: "Mrs. Puff's Boating School", creator_id: puff.id, address: '233 Barnacle Ave', rating: 0, category: "Education")
+Business.create!(name: 'Krusty Krab', creator_id: krabs.id, address: '831 Bottom Feeder Lane, Bikini Bottom, Pacific Ocean', rating: 5, category: "Restaurants")
+Business.create!(name: "Mrs. Puff's Boating School", creator_id: puff.id, address: '233 Barnacle Ave, Bikini Bottom, Pacific Ocean', rating: 5, category: "Education")
