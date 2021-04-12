@@ -8,7 +8,7 @@ const Header = ({currentUser,logout,submitForm}) => {
       <ul className="login-button-list">
         <li>
           <Link to="/login">
-            <button>Log In</button>
+            <button className="login-button">Log In</button>
           </Link>
         </li>
         <li>
