@@ -28,7 +28,7 @@ puff = User.create!(username: 'Poppy Puff', email: 'mrspuff@seamail.com', passwo
 
 b1 = Business.create!(name: 'Krusty Krab', creator_id: krabs.id, address: '831 Bottom Feeder Lane, Bikini Bottom, Pacific Ocean', rating: 5, category: "Restaurants")
 b2 = Business.create!(name: "Mrs. Puff's Boating School", creator_id: puff.id, address: '233 Barnacle Ave, Bikini Bottom, Pacific Ocean', rating: 5, category: "Education")
-# b3 = Business.create!(name: "Krabby Patties", creator_id: krabs.id, address: '233 Barnacle Ave, Bikini Bottom, Pacific Ocean', rating: 5, category: "Education")
+
 
 file1 = open('https://kelp-seeds.s3-us-west-1.amazonaws.com/krusty_krab.png')
 b1.photo.attach(io: file1, filename: 'krusty_krab.png')
@@ -36,5 +36,3 @@ b1.photo.attach(io: file1, filename: 'krusty_krab.png')
 file2 = open('https://kelp-seeds.s3-us-west-1.amazonaws.com/boating_school.png')
 b2.photo.attach(io: file2, filename: 'boating_school.png')
 
-# file3 = open('https://kelp-seeds.s3-us-west-1.amazonaws.com/krabby_patties.png')
-# b3.photo.attach(io: file3, filename: 'krabby_patties.png')
