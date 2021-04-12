@@ -93,26 +93,43 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
- /* .splash-logo {
-   width: 10%;
- } */
-
 .splash-logo-container {
   display: flex;
   justify-content: center;
   top: 100px;
   position: absolute;
   width: 100%;
+  height: 600px;
+}
+
+.splash-image-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: -100px;
+  z-index: -100;
+}
+
+.splash-image {
+  position: absolute;
+  filter: brightness(40%);
+  height: 100%;
+  width: 100%;
+  object-fit: none;
 }
 
 .splash-logo-link{
 display: flex;
 justify-content: center;
 width: 13%;
+opacity: 1;
 }
 
 .splash-logo {
-  min-width: 175px;
+  min-width: 200px;
+  height: 200px;
+  opacity: 1;
+  /* mix-blend-mode: exclusion; */
 }
 
 .login-page-container {
@@ -459,7 +476,7 @@ button:hover {
 .frontpage-business-index {
   position: relative;
   display: flex;
-  top: 275px;
+  top: 600px;
   width: 80%;
   margin: auto;
 }
@@ -540,3 +557,11 @@ button:hover {
   margin-top: 5px;
   
 } 
+
+.header-box .login-button {
+  color: white;
+}
+
+.header-box .demo-login  {
+  color: white;
+}

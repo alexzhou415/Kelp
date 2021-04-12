@@ -14,6 +14,7 @@ class BusinessShow extends React.Component {
 
   componentDidMount(){
     this.props.fetchBusiness(this.props.match.params.businessId);
+    window.scrollTo(0, 0);
   }
 
   // numStars(){
