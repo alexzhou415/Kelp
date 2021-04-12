@@ -128,8 +128,7 @@ opacity: 1;
 .splash-logo {
   min-width: 200px;
   height: 200px;
-  opacity: 1;
-  /* mix-blend-mode: exclusion; */
+  
 }
 
 .login-page-container {
