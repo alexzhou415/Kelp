@@ -11,15 +11,7 @@ User.destroy_all
 Business.destroy_all
 
 
-# u1 = User.create!(username: 'DemoUser', email: 'demo@email.com', password:'12345678', location: 'Richmond, CA')
-# u1 = User.create!(username: 'JRich', email: 'jjsmith@email.com', password:'hotdog64', location: 'San Diego, CA')
-# u1 = User.create!(username: 'StevenAdams', email: 'newzealander@email.com', password:'matemate', location: 'New York, NY')
-# u1 = User.create!(username: 'ChefCurry', email: '40percent@email.com', password:'504090se', location: 'Akron, OH')
-# u1 = User.create!(username: 'ElChapo', email: 'thebeardedone@email.com', password:'stepback', location: 'Los Angeles, CA')
-# u1 = User.create!(username: 'KingJames', email: 'akidfromakron@email.com', password:'kdisasnake', location: 'Cleveland, OH')
-# u1 = User.create!(username: 'easymoneysnip', email: 'burner@email.com', password:'imachampion2x', location: 'Washington, DC')
-# u1 = User.create!(username: 'DameTime', email: 'betterthancurry@email.com', password:'best3shooter', location: 'Oakland, CA')
-# u1 = User.create!(username: '23donkey', email: 'draygreen@email.com', password:'naturalmotion', location: 'Saginaw, MI')
+
 krabs = User.create!(username: 'Eugene Krabs', email: 'mrkrabs@seamail.com', password:'moneybags', location: 'Bikini Bottom, PO')
 sponge = User.create!(username: 'Spongebob Squarepants', email: 'frycook@seamail.com', password:'icanboat', location: 'Bikini Bottom, PO')
 squid = User.create!(username: 'Squidward Tentacles', email: 'clarinetlover@seamail.com', password:'hatemyjob', location: 'Bikini Bottom, PO')
@@ -44,5 +36,4 @@ b3.photo.attach(io: file3, filename: "Larry's_Gym.png")
 file4 = open('https://kelp-seeds.s3-us-west-1.amazonaws.com/weenie_hut_jr.png')
 b4.photo.attach(io: file4, filename: 'weenie_hut_jr.png')
 
-# file3 = open('https://kelp-seeds.s3-us-west-1.amazonaws.com/krabby_patties.png')
-# b3.photo.attach(io: file3, filename: 'krabby_patties.png')
+
