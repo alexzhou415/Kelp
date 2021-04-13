@@ -11,6 +11,7 @@ User.destroy_all
 Business.destroy_all
 
 
+
 krabs = User.create!(username: 'Eugene Krabs', email: 'mrkrabs@seamail.com', password:'moneybags', location: 'Bikini Bottom, PO')
 sponge = User.create!(username: 'Spongebob Squarepants', email: 'frycook@seamail.com', password:'icanboat', location: 'Bikini Bottom, PO')
 squid = User.create!(username: 'Squidward Tentacles', email: 'clarinetlover@seamail.com', password:'hatemyjob', location: 'Bikini Bottom, PO')
@@ -34,4 +35,5 @@ b3.photo.attach(io: file3, filename: "Larry's_Gym.png")
 
 file4 = open('https://kelp-seeds.s3-us-west-1.amazonaws.com/weenie_hut_jr.png')
 b4.photo.attach(io: file4, filename: 'weenie_hut_jr.png')
+
 
