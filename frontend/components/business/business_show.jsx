@@ -9,25 +9,24 @@ class BusinessShow extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.numStars = this.numStars.bind(this);
   }
 
   componentDidMount(){
+    
     this.props.fetchBusiness(this.props.match.params.businessId);
     window.scrollTo(0, 0);
   }
 
-  // numStars(){
-  //   let numStars;
-  //   // if (!this.props.business)
-  //   if (this.props.business.rating < 1) return stars.
-  // }
   render() { 
     
     if (!this.props.business) return null;
     let image;
     if (this.props.business.photoUrl) image = this.props.business.photoUrl;
-    
+
+    this.props.business.reviewIds.forEach((reviewId) =>
+      this.props.fetchReview(reviewId)
+    );
+
     return (
       <div className="show-page-container">
         <div className="show-page-top-header">
