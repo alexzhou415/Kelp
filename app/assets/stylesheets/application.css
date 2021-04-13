@@ -126,9 +126,11 @@ opacity: 1;
 }
 
 .splash-logo {
-  min-width: 200px;
-  height: 200px;
-  
+  min-width: 180px;
+  height: 180px;
+  border: 1px solid white;
+  border-radius: 11px;
+  background-color: rgb(255, 255, 255, .9);
 }
 
 .login-page-container {
@@ -243,8 +245,10 @@ margin-left: 20px;
 }
 
 .login-signup {
-width: 50%;
-margin: auto;
+  position: relative;
+  /* top: 13px; */
+  width: 80%;
+  margin: auto;
 }
 
 .login-prompt {
@@ -362,20 +366,30 @@ button:hover {
   border-bottom: 1px solid lightgray;
 }
 
+.show-page-top-header div {
+  position: relative;
+  top: -10%;
+}
+
+.show-page-logo-container {
+  height: 71.19px;
+  width: 71.19px;
+  left: 2%;
+  position: relative;
+}
 .show-page-logo-link {
   position: relative;
-  left: 2%;
+  
   height: 71.19px;
   width: 71.19px;
 }
 
 .non-frontpage-login {
   position: relative;
-  top: -8%;
+  /* top: -8%; */
 }
 
 .non-frontpage-login .login-button-list {
-  color: red;
   justify-content: flex-end;
 }
 
@@ -395,23 +409,25 @@ button:hover {
   position: relative;
   height: 430px;
   color: white;
-  /* min-width: 1000px; */
+  display: flex;
+  justify-content: center;
+
 }
 
 .show-page-header-photo {
   position: absolute;
-  
+  margin: auto;
   height: 100%;
-  width: 100%;
+  max-width: 1000px;
   display: flex;
   justify-content: center;
   filter: brightness(60%);
+  object-fit: none;
 }
 
 .show-page-header-photo img{
   position: relative;
-  width: 100%;
-  min-width: 1000px;
+  min-width: 760px;
   height: 100%;
   margin: auto;
   /* left: 100px; */
@@ -434,7 +450,7 @@ button:hover {
 }
 
 .show-page-content {
-  width: 80%;
+  width: 50%;
   margin: auto;
  
 }
@@ -466,9 +482,12 @@ button:hover {
   position: relative;
   /* top: 255px; */
   width: 400px;
-  margin-left: 280px;
+  margin: auto;
+  /* margin-left: 280px; */
   color: indigo;
   font-weight: 900;
+  display: flex;
+  justify-content: center;
   font-size: 18px;
 }
 
@@ -478,14 +497,17 @@ button:hover {
   top: 600px;
   width: 80%;
   margin: auto;
+  justify-content: center;
 }
 
 .business-index-list {
+
   display: flex;
   flex-direction: column;
   top: 275px;
   list-style: none;
   width: 80%;
+  padding: 0;
 }
 .business-index-link {
   text-decoration: none;
@@ -515,6 +537,7 @@ button:hover {
   height: 200px;
   position: absolute;
   border-radius: 4px;
+  
 }
 .business-index-item-info {
   position: relative;
@@ -556,6 +579,12 @@ button:hover {
   margin-top: 5px;
   
 } 
+
+.header-box .login-button-list{
+  position: relative;
+  top: 20px;
+  right: -9.3%;
+}
 
 .header-box .login-button {
   color: white;

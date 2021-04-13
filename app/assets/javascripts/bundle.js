@@ -747,6 +747,8 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
         className: "show-page-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page-top-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "show-page-logo-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
         to: "/",
         className: "show-page-logo-link"
@@ -754,7 +756,7 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
         className: "login-logo",
         src: _app_assets_images_logo_transparent_png__WEBPACK_IMPORTED_MODULE_2__.default,
         alt: ""
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page-search"
       }, "Search Bar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "non-frontpage-login"

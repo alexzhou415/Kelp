@@ -31,9 +31,11 @@ class BusinessShow extends React.Component {
     return (
       <div className="show-page-container">
         <div className="show-page-top-header">
-          <Link to="/" className="show-page-logo-link">
-            <img className="login-logo" src={logo} alt="" />
-          </Link>
+          <div className="show-page-logo-container">
+            <Link to="/" className="show-page-logo-link">
+              <img className="login-logo" src={logo} alt="" />
+            </Link>
+          </div>
           <div className="show-page-search">Search Bar</div>
           <div className="non-frontpage-login">
             <HeaderContainer />
