@@ -6,6 +6,9 @@ class User < ApplicationRecord
   has_many :businesses,
     foreign_key: :creator_id,
     class_name: 'Business'
+  has_many :reviews,
+    foreign_key: :author_id,
+    class_name: 'Review'
   has_one_attached :photo
 
   def self.find_by_credentials(email, password)

@@ -24,6 +24,14 @@ b2 = Business.create!(name: "Mrs. Puff's Boating School", creator_id: puff.id, a
 b3 = Business.create!(name: "Larry's Gym", creator_id: star.id, address: '9387 Krill Blvd, Bikini Bottom, Pacific Ocean', rating: 4, category: "Active Life")
 b4 = Business.create!(name: "Weenie Hut Jr's", creator_id: star.id, address: '256 Hotdog Road, Bikini Bottom, Pacific Ocean', rating: 4.5, category: "Restaurants")
 
+r1 = Review.create!(rating: 5, author_id: krabs.id, business_id: b1.id, body: 'I highly recommend this place. They have great service and even better food!')
+r2 = Review.create!(rating: 5, author_id: sponge.id, business_id: b2.id, body: 'This boating school is one of the best in Bikini Bottom. I have been attending for over 10 years
+ and will probably get my boating license soon! Mrs. Puff is an amazing instructor and I would not choose any other school.')
+r3 = Review.create!(rating: 4, author_id: squid.id, business_id: b3.id, body: 'I became a member for a month to give it a try. All the equipment is very new and polished. 
+The owner Larry even helped spot me when I was bench pressing! However when I was struggling to finish my last set, Larry got distracted looking in the mirror and I almost died. 
+For that I will have to give it a less than perfect score.')
+r4 = Review.create!(rating: 5, author_id: star.id, business_id: b4.id, body: "My favorite item here is the hotdogs. They serve it with plenty of mayonnaise. It's usually empty here so the wait time isn't too bad.")
+
 file1 = open('https://kelp-seeds.s3-us-west-1.amazonaws.com/krusty_krab.png')
 b1.photo.attach(io: file1, filename: 'krusty_krab.png')
 

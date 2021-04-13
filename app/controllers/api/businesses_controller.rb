@@ -25,7 +25,7 @@ class Api::BusinessesController < ApplicationController
 
   def update
     @business = Business.find(params[:id])
-    if @business && @business.update(business_params)
+    if @business && @business.creator_id == current_user.id && @business.update(business_params)
       render :show
     else
       render json: ["Business page could not be updated"], status: 401
