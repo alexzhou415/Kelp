@@ -18,7 +18,7 @@ export const clearErrors = () => ({
   type: CLEAR_ERRORS,
 });
 
-export const receiveUser = (userId) => (dispatch) =>
+export const fetchUser = (userId) => (dispatch) =>
   SessionAPIUtil.fetchUser(userId).then(
     (user) => dispatch(receiveUser(user)),
     (errors) => dispatch(receiveUserErrors(errors.responseJSON))

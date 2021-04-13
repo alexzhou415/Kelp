@@ -1,10 +1,25 @@
 import React from 'react';
 
-const ReviewItem = () => {
+class ReviewItem extends React.Component {
+ 
+  constructor(props){
+    super(props);
+    console.log(this.props);
+  }
 
-  return (
-    <div className="review-item-container">
+  componentDidMount(){
+    this.props.fetchReview(this.props.reviewId);
+  }
+  render(){
+    // console.log(this.props);
+    if (!this.props.review) return null;
+    return (
       
-    </div>
-  )
+      <div className="review-item-container">
+        {this.props.review.body}
+      </div>
+    )
+  }
 };
+
+export default ReviewItem;

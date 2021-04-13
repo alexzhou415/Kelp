@@ -3,6 +3,7 @@ import HeaderContainer from '../header/header_container';
 import {Link} from 'react-router-dom';
 import logo from "../../../app/assets/images/logo_transparent.png";
 import * as stars from './business_rating_stars';
+import ReviewItemContainer from '../review/review_item_container';
 
 class BusinessShow extends React.Component {
 
@@ -26,7 +27,7 @@ class BusinessShow extends React.Component {
     this.props.business.reviewIds.forEach((reviewId) =>
       this.props.fetchReview(reviewId)
     );
-
+    const reviews = this.props.business.reviewIds.map(reviewId => <ReviewItemContainer key={reviewId} reviewId={reviewId}/>)
     return (
       <div className="show-page-container">
         <div className="show-page-top-header">
@@ -71,6 +72,7 @@ class BusinessShow extends React.Component {
           <div className="show-page-questions"></div>
           <div className="show-page-reviews">
             <div className="recommended-reviews">Recommended Reviews</div>
+            <div>{reviews}</div>
           </div>
         </div>
       </div>
