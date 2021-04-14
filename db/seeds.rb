@@ -33,15 +33,15 @@ For that I will have to give it a less than perfect score.')
 r4 = Review.create!(rating: 5, author_id: star.id, business_id: b4.id, body: "My favorite item here is the hotdogs. They serve it with plenty of mayonnaise. It's usually empty here so the wait time isn't too bad.")
 
 file1 = open('https://kelp-seeds.s3-us-west-1.amazonaws.com/krusty_krab.png')
-b1.photo.attach(io: file1, filename: 'krusty_krab.png')
+b1.photos.attach(io: file1, filename: 'krusty_krab.png')
 
 file2 = open('https://kelp-seeds.s3-us-west-1.amazonaws.com/boating_school.png')
-b2.photo.attach(io: file2, filename: 'boating_school.png')
+b2.photos.attach(io: file2, filename: 'boating_school.png')
 
 file3 = open("https://kelp-seeds.s3-us-west-1.amazonaws.com/Larry's_Gym.png")
-b3.photo.attach(io: file3, filename: "Larry's_Gym.png")
+b3.photos.attach(io: file3, filename: "Larry's_Gym.png")
 
 file4 = open('https://kelp-seeds.s3-us-west-1.amazonaws.com/weenie_hut_jr.png')
-b4.photo.attach(io: file4, filename: 'weenie_hut_jr.png')
+b4.photos.attach(io: file4, filename: 'weenie_hut_jr.png')
 
 

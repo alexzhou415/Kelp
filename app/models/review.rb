@@ -3,7 +3,7 @@ class Review < ApplicationRecord
   validates :rating, inclusion: { in: (1..5) }
   validates :author_id, uniqueness: {scope: :business_id}
 
-  has_one_attached :photo
+  has_many_attached :photos
   belongs_to :author,
     foreign_key: :author_id,
     class_name: 'User'

@@ -13,7 +13,7 @@ const BusinessIndexItem = (props) => {
         <div className="business_index_image_container">
           <img
             className="business-item-image"
-            src={props.business.photoUrl}
+            src={props.business.photoUrls[0]}
             alt=""
           />
         </div>

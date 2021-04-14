@@ -660,7 +660,7 @@ var BusinessIndexItem = function BusinessIndexItem(props) {
     className: "business_index_image_container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "business-item-image",
-    src: props.business.photoUrl,
+    src: props.business.photoUrls[0],
     alt: ""
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "business-index-item-info"
@@ -887,7 +887,7 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       if (!this.props.business) return null;
       var image;
-      if (this.props.business.photoUrl) image = this.props.business.photoUrl; // this.props.business.reviewIds.forEach((reviewId) =>
+      if (this.props.business.photoUrls) image = this.props.business.photoUrls.first; // this.props.business.reviewIds.forEach((reviewId) =>
       //   this.props.fetchReview(reviewId)
       // );
       // const reviews = this.props.business.reviewIds.map(reviewId => 
@@ -922,9 +922,9 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page-header-photo"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: image,
+        src: this.props.business.photoUrls,
         alt: ""
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, image)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page-header-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "show-page-header-info-list"
@@ -992,9 +992,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapSTP = function mapSTP(state, _ref) {
   var match = _ref.match;
-  var business = state.entities.businesses[match.params.businessId] || {
-    reviewIds: []
-  };
+  var business = state.entities.businesses[match.params.businessId];
   var reviews = state.entities.reviews;
   return {
     business: business,
@@ -1284,7 +1282,6 @@ var ReviewItem = /*#__PURE__*/function (_React$Component) {
   _createClass(ReviewItem, [{
     key: "render",
     value: function render() {
-      console.log(this.props);
       var date = this.props.review.createdAt;
       var month = date.slice(5, 7);
       var day = date.slice(8, 10);
@@ -1294,14 +1291,22 @@ var ReviewItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-header-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-header-profile"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-header-info"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.author.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.author.location))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-header-name"
+      }, this.props.author.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-header-location"
+      }, this.props.author.location))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-rating-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "review-item-stars",
         src: _business_business_rating_stars__WEBPACK_IMPORTED_MODULE_1__.IndexStar(this.props.review.rating),
         alt: ""
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, month, "-", day, "-", year)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-item-date"
+      }, month, "/", day, "/", year)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-body-container"
       }, this.props.review.body));
     }

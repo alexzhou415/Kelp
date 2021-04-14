@@ -22,7 +22,7 @@ class BusinessShow extends React.Component {
     
     if (!this.props.business) return null;
     let image;
-    if (this.props.business.photoUrl) image = this.props.business.photoUrl;
+    if (this.props.business.photoUrls) image = this.props.business.photoUrls.first;
 
     // this.props.business.reviewIds.forEach((reviewId) =>
     //   this.props.fetchReview(reviewId)
@@ -34,7 +34,7 @@ class BusinessShow extends React.Component {
     const reviews = Object.values(this.props.reviews).map((review) => (
       <ReviewItemContainer key={review.id} reviewId={review.id} />
     ));
-    
+
     return (
       <div className="show-page-container">
         <div className="show-page-top-header">
@@ -50,7 +50,8 @@ class BusinessShow extends React.Component {
         </div>
         <div className="show-page-biz-header">
           <div className="show-page-header-photo">
-            <img src={image} alt="" />
+            <img src={this.props.business.photoUrls} alt="" />
+            <div>{image}</div>
           </div>
           <div className="show-page-header-info">
             <ul className="show-page-header-info-list">

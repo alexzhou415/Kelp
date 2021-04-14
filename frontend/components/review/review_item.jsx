@@ -8,7 +8,6 @@ class ReviewItem extends React.Component {
   }
 
   render(){
-    console.log(this.props);
     const date = this.props.review.createdAt;
     const month = date.slice(5,7);
     const day = date.slice(8,10);
@@ -16,9 +15,10 @@ class ReviewItem extends React.Component {
     return (
       <div className="review-item-container">
         <div className="review-header-container">
+          <div className="review-header-profile"></div>
           <div className="review-header-info">
-            <div>{this.props.author.username}</div>
-            <div>{this.props.author.location}</div>
+            <div className="review-header-name">{this.props.author.username}</div>
+            <div className="review-header-location">{this.props.author.location}</div>
           </div>
         </div>
         <div className="review-rating-container">
@@ -27,8 +27,8 @@ class ReviewItem extends React.Component {
             src={Stars.IndexStar(this.props.review.rating)}
             alt=""
           />
-          <div>
-            {month}-{day}-{year}
+          <div className="review-item-date">
+            {month}/{day}/{year}
           </div>
         </div>
         <div className="review-body-container">{this.props.review.body}</div>

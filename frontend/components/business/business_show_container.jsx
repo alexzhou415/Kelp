@@ -6,7 +6,7 @@ import {fetchReview} from '../../actions/review_actions';
 import {selectReviewsForBusiness} from '../../reducers/selectors';
 
 const mapSTP = (state, {match}) => {
-  const business = state.entities.businesses[match.params.businessId] || {reviewIds: []};
+  const business = state.entities.businesses[match.params.businessId];
   const reviews = state.entities.reviews;
   return {
     business,
