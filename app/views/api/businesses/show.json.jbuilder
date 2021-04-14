@@ -7,7 +7,12 @@ end
   json.reviews do
     json.set! review.id do 
       json.partial! 'api/reviews/review', review: review
-      json.extract! review.author, :username
+    end
+  end
+
+  json.authors do 
+    json.set! review.author.id do
+      json.partial! 'api/users/user', user: review.author
     end
   end
 end

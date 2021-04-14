@@ -7,11 +7,10 @@ import {selectReviewsForBusiness} from '../../reducers/selectors';
 
 const mapSTP = (state, {match}) => {
   const business = state.entities.businesses[match.params.businessId] || {reviewIds: []};
-  const reviewIds = business.reviewIds;
-  // const reviews = selectReviewsForBusiness(state.entities, business);
+  const reviews = state.entities.reviews;
   return {
     business,
-    reviewIds,
+    reviews,
   }
 };
 

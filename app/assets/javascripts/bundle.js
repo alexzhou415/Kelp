@@ -143,11 +143,13 @@ var receiveBusinesses = function receiveBusinesses(businesses) {
 
 var receiveBusiness = function receiveBusiness(_ref) {
   var business = _ref.business,
-      reviews = _ref.reviews;
+      reviews = _ref.reviews,
+      authors = _ref.authors;
   return {
     type: RECEIVE_BUSINESS,
     business: business,
-    reviews: reviews
+    reviews: reviews,
+    authors: authors
   };
 };
 
@@ -883,18 +885,19 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
-
       if (!this.props.business) return null;
       var image;
-      if (this.props.business.photoUrl) image = this.props.business.photoUrl;
-      this.props.business.reviewIds.forEach(function (reviewId) {
-        return _this.props.fetchReview(reviewId);
-      });
-      var reviews = this.props.business.reviewIds.map(function (reviewId) {
+      if (this.props.business.photoUrl) image = this.props.business.photoUrl; // this.props.business.reviewIds.forEach((reviewId) =>
+      //   this.props.fetchReview(reviewId)
+      // );
+      // const reviews = this.props.business.reviewIds.map(reviewId => 
+      //   <ReviewItemContainer key={reviewId} reviewId={reviewId}/>
+      // )
+
+      var reviews = Object.values(this.props.reviews).map(function (review) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_item_container__WEBPACK_IMPORTED_MODULE_4__.default, {
-          key: reviewId,
-          reviewId: reviewId
+          key: review.id,
+          reviewId: review.id
         });
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -992,11 +995,10 @@ var mapSTP = function mapSTP(state, _ref) {
   var business = state.entities.businesses[match.params.businessId] || {
     reviewIds: []
   };
-  var reviewIds = business.reviewIds; // const reviews = selectReviewsForBusiness(state.entities, business);
-
+  var reviews = state.entities.reviews;
   return {
     business: business,
-    reviewIds: reviewIds
+    reviews: reviews
   };
 };
 
@@ -1242,6 +1244,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _business_business_rating_stars__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../business/business_rating_stars */ "./frontend/components/business/business_rating_stars.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1266,34 +1269,41 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var ReviewItem = /*#__PURE__*/function (_React$Component) {
   _inherits(ReviewItem, _React$Component);
 
   var _super = _createSuper(ReviewItem);
 
   function ReviewItem(props) {
-    var _this;
-
     _classCallCheck(this, ReviewItem);
 
-    _this = _super.call(this, props);
-    console.log(_this.props);
-    return _this;
+    return _super.call(this, props);
   }
 
   _createClass(ReviewItem, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchReview(this.props.reviewId);
-    }
-  }, {
     key: "render",
     value: function render() {
-      // console.log(this.props);
-      if (!this.props.review) return null;
+      console.log(this.props);
+      var date = this.props.review.createdAt;
+      var month = date.slice(5, 7);
+      var day = date.slice(8, 10);
+      var year = date.slice(0, 4);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-item-container"
-      }, this.props.review.body);
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-header-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-header-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.author.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.author.location))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-rating-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "review-item-stars",
+        src: _business_business_rating_stars__WEBPACK_IMPORTED_MODULE_1__.IndexStar(this.props.review.rating),
+        alt: ""
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, month, "-", day, "-", year)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "review-body-container"
+      }, this.props.review.body));
     }
   }]);
 
@@ -1320,14 +1330,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _review_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./review_item */ "./frontend/components/review/review_item.jsx");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+
 
 
 
 
 
 var mapSTP = function mapSTP(state, ownProps) {
+  var review = state.entities.reviews[ownProps.reviewId]; // const rating = state.entities.businesses[review.businessId].rating;
+
+  var author = state.entities.users[review.authorId];
   return {
-    review: state.entities.reviews[ownProps.reviewId]
+    review: review,
+    author: author
   };
 };
 
@@ -1335,6 +1351,9 @@ var mapDTP = function mapDTP(dispatch) {
   return {
     fetchReview: function fetchReview(reviewId) {
       return dispatch((0,_actions_review_actions__WEBPACK_IMPORTED_MODULE_3__.fetchReview)(reviewId));
+    },
+    fetchUser: function fetchUser(userId) {
+      return dispatch((0,_actions_user_actions__WEBPACK_IMPORTED_MODULE_4__.fetchUser)(userId));
     }
   };
 };
@@ -1952,7 +1971,7 @@ var reviewsReducer = function reviewsReducer() {
 
   switch (action.type) {
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_BUSINESS:
-      return Object.assign({});
+      return Object.assign({}, action.reviews);
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_REVIEW:
       nextState[action.review.id] = action.review;
@@ -2114,7 +2133,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/business_actions */ "./frontend/actions/business_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2125,6 +2146,9 @@ var usersReducer = function usersReducer() {
   Object.freeze(state);
 
   switch (action.type) {
+    case _actions_business_actions__WEBPACK_IMPORTED_MODULE_2__.RECEIVE_BUSINESS:
+      return Object.assign({}, state, action.authors);
+
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_USER:
       return Object.assign({}, state, _defineProperty({}, action.user.id, action.user));
 

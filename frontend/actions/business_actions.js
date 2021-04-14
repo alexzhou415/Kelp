@@ -12,10 +12,11 @@ const receiveBusinesses = (businesses) => ({
   businesses
 });
 
-const receiveBusiness = ({business, reviews}) => ({
+const receiveBusiness = ({business, reviews, authors}) => ({
   type: RECEIVE_BUSINESS,
   business,
-  reviews
+  reviews,
+  authors,
 });
 
 const removeBusiness = (businessId) => ({
