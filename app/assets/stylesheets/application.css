@@ -603,7 +603,7 @@ button:hover {
 .review-header-container {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .review-header-profile {
@@ -642,4 +642,146 @@ button:hover {
   font-family: 'Bitter', serif;
   font-size: 15px;
   font-weight: 100;
+}
+
+.review-photos-container {
+  /* max-height: 200px; */
+  display: flex;
+}
+
+.review-photos-container img {
+  max-width: 200px;
+}
+.review-page-container .show-page-top-header{
+  /* display: flex;
+  flex-direction: column; */
+  height: 100px;
+  
+}
+.review-form-container {
+  position: relative;
+  margin: auto;
+  width: 950px;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  /* height: 500px; */
+}
+
+.review-form-business-name {
+  font-weight: 900;
+  font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+.review-form-box {
+  width: 700px;
+}
+
+.review-form-main-container {
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  /* margin: 20px; */
+}
+
+.review-form-rating-container, .review-form-body {
+  padding: 20px 20px 0px 20px;
+}
+
+.review-form-rating-container {
+  display: flex;
+  justify-content: baseline;
+  height: 60px;
+}
+.review-form-stars-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 177.5px;
+  height: 32px;
+  /* margin-right: 100px; */
+}
+.review-form-clicked-stars, .review-form-hovered-stars {
+  position: absolute;
+  height: 32px;
+
+}
+
+.review-form-hovered-stars {
+  opacity: 0;
+}
+
+.review-form-stars-container div {
+  height: 32px;
+  width: 35.5px;
+  /* border: 1px solid green; */
+  z-index: 1;
+}
+
+.review-form-stars-container:hover {
+  cursor: pointer;
+}
+
+.review-form-stars-container:hover .review-form-clicked-stars {
+  opacity: 0;
+  /* background-color: purple; */
+}
+
+.review-form-stars-container:hover .review-form-hovered-stars {
+  opacity: 1;
+  /* background-color: purple; */
+}
+
+.review-form-stars-description {
+  position: relative;
+  margin-left: 10px;
+  font-size: 15px;
+  height: 32px;
+  top: 5px;
+}
+
+.review-form-body {
+  border: none;
+  width: 100%;
+  min-height: 250px;
+  resize: vertical;
+  outline: none;
+  height: 300px;
+  font-family: 'Bitter', serif;
+}
+
+::placeholder {
+  color: lightgray;
+}
+
+.review-form-error {
+  height: 50px;
+  color: red;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+::-webkit-resizer {
+  display: none;
+}
+
+.review-form-attach-photos {
+  margin-top: 50px;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.review-form-photos-upload {
+  margin-top: 10px;
+}
+
+.review-form-submit {
+  margin-top: 30px;
+  width: 200px;
+  height: 40px;
+  padding: 0;
+  margin-bottom: 50px;
+  border-radius: 4px;
+  background-color: aqua;
+  border: aqua;
+  color: indigo;
 }

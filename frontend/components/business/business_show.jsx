@@ -18,18 +18,33 @@ class BusinessShow extends React.Component {
     window.scrollTo(0, 0);
   }
 
+  reviewBar(){
+    let reviewed = false;
+    let reviewId;
+    Object.values(this.props.reviews).forEach(review => {
+      if (review.authorId === this.props.currentUserId) {
+        reviewed = true;
+        reviewId = review.id;
+      }
+    });
+    if (reviewed) return (
+      <div>
+        <Link className="show-page-update-review" to={`/businesses/${this.props.business.id}/reviews/${reviewId}`}><button>Update Your Review</button></Link>
+        <button className="show-page-delete-review" onClick={() => this.props.deleteReview(reviewId)}>Delete Your Review</button>
+      </div>
+    )
+    return (
+      <div>
+        <Link className="show-page-create-review" to={`/businesses/${this.props.business.id}/reviews/new`}><button>Write a Review</button></Link>
+      </div>
+      
+    )
+  }
   render() { 
     
     if (!this.props.business) return null;
     let image;
     if (this.props.business.photoUrls) image = this.props.business.photoUrls.first;
-
-    // this.props.business.reviewIds.forEach((reviewId) =>
-    //   this.props.fetchReview(reviewId)
-    // );
-    // const reviews = this.props.business.reviewIds.map(reviewId => 
-    //   <ReviewItemContainer key={reviewId} reviewId={reviewId}/>
-    // )
     
     const reviews = Object.values(this.props.reviews).map((review) => (
       <ReviewItemContainer key={review.id} reviewId={review.id} />
@@ -68,7 +83,9 @@ class BusinessShow extends React.Component {
           </div>
         </div>
         <div className="show-page-content">
-          <div className="show-page-reviewbar"></div>
+          <div className="show-page-reviewbar">
+            {this.reviewBar()}
+          </div>
           <div className="show-page-location-container">
             <div className="show-page-map"></div>
             <div className="show-page-location-header">Location</div>

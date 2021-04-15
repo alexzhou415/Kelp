@@ -40,37 +40,32 @@ const receiveReview = (review) => ({
 });
 
 
-export const fetchBusinesses = () => dispatch => (
+export const fetchBusinesses = () => (dispatch) =>
   BusinessAPIUtil.fetchBusinesses().then(
     (businesses) => dispatch(receiveBusinesses(businesses)),
-    (errors) => dispatch(receiveBusinessErrors(errors))
-  )
-);
+    (errors) => dispatch(receiveBusinessErrors(errors.responseJSON))
+  );
 
-export const fetchBusiness = (businessId) => dispatch => (
+export const fetchBusiness = (businessId) => (dispatch) =>
   BusinessAPIUtil.fetchBusiness(businessId).then(
     (business) => dispatch(receiveBusiness(business)),
-    (errors) => dispatch(receiveBusinessErrors(errors))
-  )
-);
+    (errors) => dispatch(receiveBusinessErrors(errors.responseJSON))
+  );
 
-export const createBusiness = (business) => dispatch => (
+export const createBusiness = (business) => (dispatch) =>
   BusinessAPIUtil.createBusiness(business).then(
     (business) => dispatch(receiveBusiness(business)),
-    (errors) => dispatch(receiveBusinessErrors(errors))
-  )
-);
+    (errors) => dispatch(receiveBusinessErrors(errors.responseJSON))
+  );
 
-export const updateBusiness = (business) => dispatch => (
+export const updateBusiness = (business) => (dispatch) =>
   BusinessAPIUtil.updateBusiness(business).then(
-    business => dispatch(receiveBusiness(business)),
-    errors => dispatch(receiveBusinessErrors(errors))
-  )
-);
+    (business) => dispatch(receiveBusiness(business)),
+    (errors) => dispatch(receiveBusinessErrors(errors.responseJSON))
+  );
 
-export const deleteBusiness = businessId => dispatch => (
+export const deleteBusiness = (businessId) => (dispatch) =>
   BusinessAPIUtil.deleteBusiness(businessId).then(
     () => dispatch(removeBusiness(businessId)),
-    errors => dispatch(receiveBusinessErrors(errors))
-  )
-);
+    (errors) => dispatch(receiveBusinessErrors(errors.responseJSON))
+  );

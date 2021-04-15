@@ -28,23 +28,23 @@ export const clearErrors = () => ({
 export const fetchReview = (reviewId) => (dispatch) =>
   ReviewAPIUtil.fetchReview(reviewId).then(
     (review) => dispatch(receiveReview(review)),
-    (errors) => dispatch(receiveReviewErrors(errors))
+    (errors) => dispatch(receiveReviewErrors(errors.responseJSON))
   );
 
 export const createReview = (review) => (dispatch) =>
   ReviewAPIUtil.createReview(review).then(
     (review) => dispatch(receiveReview(review)),
-    (errors) => dispatch(receiveReviewErrors(errors))
+    (errors) => dispatch(receiveReviewErrors(errors.responseJSON))
   );
 
 export const updateReview = (review) => (dispatch) =>
   ReviewAPIUtil.updateReview(review).then(
     (review) => dispatch(receiveReview(review)),
-    (errors) => dispatch(receiveReviewErrors(errors))
+    (errors) => dispatch(receiveReviewErrors(errors.responseJSON))
   );
 
 export const deleteReview = (reviewId) => (dispatch) =>
   ReviewAPIUtil.deleteReview(reviewId).then(
     () => dispatch(removeReview(reviewId)),
-    (errors) => dispatch(receiveReviewErrors(errors))
+    (errors) => dispatch(receiveReviewErrors(errors.responseJSON))
   );

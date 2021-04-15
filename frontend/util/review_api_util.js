@@ -8,6 +8,8 @@ export const createReview = (review) =>
     method: "POST",
     url: "api/reviews",
     data: review,
+    contentType: false,
+    processData: false,
   });
 
 export const updateReview = (review) =>
@@ -15,6 +17,8 @@ export const updateReview = (review) =>
     method: "PATCH",
     url: `api/reviews/${review.id}`,
     data: review,
+    contentType: false,
+    processData: false,
   });
 
 export const deleteReview = (id) =>
