@@ -123,6 +123,7 @@ display: flex;
 justify-content: center;
 width: 13%;
 opacity: 1;
+height: 180px;
 }
 
 .splash-logo {
@@ -213,8 +214,9 @@ width: 71.19px;
 
 .login-button-list button, .logout-bar button {
 height: 40px;
-font-weight: bold;
+font-weight: 900;
 min-width: 80px;
+padding: 0px 10px;
 border-radius: 4px;
 border: 1px solid gray;
 background-color: transparent;
@@ -226,12 +228,13 @@ margin-left: 20px;
 
 .login-button-list .demo-login {
   min-width: 108.5px;
+  /* width: auto; */
 }
 
 .logout-bar {
   display: flex;
   justify-content: flex-end;
-  margin: 16px 30px;
+  margin: 16px 40px;
 }
 
 .logout-bar div {
@@ -353,10 +356,6 @@ button:hover {
   display: flex;
 }
 
-/* .show-page-container {
-  
-} */
-
 .show-page-top-header {
   display: flex;
   justify-content: space-between;
@@ -391,6 +390,10 @@ button:hover {
 
 .non-frontpage-login .login-button-list {
   justify-content: flex-end;
+}
+
+.demo-login {
+  width: 120.5px;
 }
 
 .show-page-header-info {
@@ -446,7 +449,19 @@ button:hover {
   position: relative;
   top: 44%;
   left: 7.5%;
+  display: flex;
+
+}
+
+.show-page-stars  {
   width: 176px;
+}
+
+.show-page-review-numbers {
+  font-weight: 900;
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .show-page-content {
@@ -456,8 +471,29 @@ button:hover {
  
 }
 
+.show-page-reviewbar {
+  margin-top: 25px;
+  margin-bottom: 40px;
+}
+
+.show-page-reviewbar button {
+  height: 40px;
+  color: indigo;
+  background-color: aqua;
+  border: 1px solid aqua;
+  border-radius: 4px;
+  font-weight: 900;
+  width: auto;
+  padding: 0px 10px;
+}
+
+.show-page-update-review {
+  margin-right: 10px;
+}
+
 .show-page-location-container {
-  height: 200px;
+  height: 140px;
+  border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   padding-top: 30px;
 }
@@ -468,9 +504,14 @@ button:hover {
 }
 
 .show-page-address {
+  top: 20px;
   position: relative;
   font-size: 15px;
   font-weight: 900;
+}
+
+.show-page-reviews {
+  padding-top: 30px;
 }
 
 .recommended-reviews {
@@ -496,10 +537,11 @@ button:hover {
   position: relative;
   display: flex;
   top: 600px;
-  width: 80%;
+  width: 100%;
   margin: auto;
   justify-content: center;
 }
+
 
 .business-index-list {
 
@@ -526,7 +568,6 @@ button:hover {
 .business_index_image_container {
   width: 250px;
   height: 250px;
-
   position: absolute;
   display: flex;
   justify-content: center;
@@ -581,17 +622,82 @@ button:hover {
   
 } 
 
+.bikini {
+  display: none;
+}
+
+.frontpage-business-index .business-index {
+  width: 1000px;
+}
+.frontpage-business-index .business-index-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.frontpage-business-index .business-index-item {
+  height: 320px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.frontpage-business-index .business_index_image_container {
+  width: 300px;
+  height: 180px;
+  /* background-color: purple; */
+}
+
+.frontpage-business-index .business-item-image {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  right: 1px;
+}
+
+.frontpage-business-index .business-index-item-info {
+  left: 10px;
+  top: 190px;
+  width: 100%;
+}
+
+.frontpage-business-index .business-item-name {
+  font-size: 17px;
+}
+
+.frontpage-business-index .business-item-cat {
+  color: black;
+  width: 100%;
+}
+
+.frontpage-business-index .business-item-address {
+  display: none;
+  
+}
+
+.frontpage-business-index .bikini {
+  display: block;
+  color: black;
+  font-size: 15px;
+}
+
 .header-box .login-button-list{
   position: relative;
   top: 20px;
   right: -9.3%;
 }
 
+.header-box .logout-bar {
+  position: relative;
+  top: 20px;
+}
+
 .header-box .login-button {
   color: white;
 }
 
-.header-box .demo-login  {
+.header-box .demo-login , .header-box .logout-button, .header-box div {
   color: white;
 }
 

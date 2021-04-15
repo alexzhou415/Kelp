@@ -8,13 +8,14 @@ class ReviewForm extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      body: this.props.body,
-      rating: this.props.rating,
-      hoverRating: 0,
-      photos: [],
-      // hover: this.showStars("hover"),
+    if (true) {
+      this.state = {
+        body: '',
+        rating: 0,
+        hoverRating: 0,
+        photos: [],
+        // errors: this.props.errors,
+      }
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,9 +24,12 @@ class ReviewForm extends React.Component {
     this.renderError = this.renderError.bind(this);
   }
   componentDidMount(){
+    // console.log(this.props.review);
     this.props.fetchBusiness(this.props.match.params.businessId);
     if (this.props.match.params.reviewId) {
-      this.props.fetchBusiness(this.props.match.params.reviewId);
+      this.props.fetchReview(this.props.match.params.reviewId)
+        // .then((res) => console.log(res))
+        .then((res) => this.setState({body: res.body, rating: res.rating}));
     }
     window.scrollTo(0, 0);
   }
@@ -37,21 +41,34 @@ class ReviewForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const formData = new FormData();
+    // console.log(this.props);
     formData.append('review[body]', this.state.body);
     formData.append('review[rating]', this.state.rating);
     formData.append('review[author_id]', this.props.currentUserId);
     formData.append('review[business_id]', this.props.business.id);
+    if (this.props.match.params.reviewId) formData.append('review[id]', this.props.review.id);
+    
     if (this.state.photos) {
       for (let i = 0; i < this.state.photos.length; i++) {
         formData.append('review[photos][]', this.state.photos[i]);
       }
     }
-    console.log(this.state);
-    console.log(formData);
-    this.props.submitReview(formData);
-    // console.log(this.props);
-    
-    // this.props.history.push("/");
+  
+    // console.log(formData);
+    if (this.props.match.params.reviewId) {
+      this.props.submitReview(formData, this.props.review.id)
+        .then(
+          () => this.props.history.push(`/businesses/${this.props.match.params.businessId}`),
+          () => console.log(this.props)
+      )
+    }
+    else {
+      this.props.submitReview(formData)
+        .then(
+          () => this.props.history.push(`/businesses/${this.props.match.params.businessId}`),
+          () => console.log(this.props)
+        )
+    }
   }
 
   showStars(action){
@@ -97,10 +114,17 @@ class ReviewForm extends React.Component {
       
     }
   }
+
+
   render(){
-    console.log(this.props.business);
-    console.log(this.props.body);
+    // console.log(this.props.business);
+    // console.log(this.props.review);
+    // console.log(this.props);
     if (!this.props.business ) return null;
+    if (this.props.match.params.reviewId) {
+      if (!this.props.review) return null;
+    }
+
     return (
       <div className="review-page-container">
         <div className="show-page-top-header">

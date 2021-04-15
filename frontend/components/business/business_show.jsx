@@ -27,10 +27,11 @@ class BusinessShow extends React.Component {
         reviewId = review.id;
       }
     });
+  
     if (reviewed) return (
       <div>
-        <Link className="show-page-update-review" to={`/businesses/${this.props.business.id}/reviews/${reviewId}`}><button>Update Your Review</button></Link>
-        <button className="show-page-delete-review" onClick={() => this.props.deleteReview(reviewId)}>Delete Your Review</button>
+        <Link className="show-page-update-review" to={`/businesses/${this.props.business.id}/reviews/${reviewId}`}><button>Update Review</button></Link>
+        <button className="show-page-delete-review" onClick={() => this.props.deleteReview(reviewId)}>Delete Review</button>
       </div>
     )
     return (
@@ -78,6 +79,7 @@ class BusinessShow extends React.Component {
                     alt=""
                   />
                 </div>
+                <div className="show-page-review-numbers">{Object.keys(this.props.reviews).length} reviews</div>
               </li>
             </ul>
           </div>

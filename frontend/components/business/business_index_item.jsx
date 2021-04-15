@@ -28,6 +28,7 @@ const BusinessIndexItem = (props) => {
             <img src={stars.IndexStar(props.business.rating)} alt="" />
           </div>
           <div className="business-item-cat">{props.business.category}</div>
+          <div className="bikini">Bikini Bottom</div>
         </div>
       </div>
     </Link>

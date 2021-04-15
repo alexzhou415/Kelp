@@ -12,14 +12,16 @@ export const createReview = (review) =>
     processData: false,
   });
 
-export const updateReview = (review) =>
-  $.ajax({
+export const updateReview = (review, id) => {
+  
+  return $.ajax({
     method: "PATCH",
-    url: `api/reviews/${review.id}`,
+    url: `api/reviews/${id}`,
     data: review,
     contentType: false,
     processData: false,
   });
+}
 
 export const deleteReview = (id) =>
   $.ajax({

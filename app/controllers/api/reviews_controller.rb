@@ -19,11 +19,11 @@ class Api::ReviewsController < ApplicationController
   end
 
   def update
-    @review = Business.find(params[:id])
+    @review = Review.find(params[:id])
     if @review && @review.author_id == current_user.id && @review.update(review_params)
       render :show
     else
-      render json: ["Review could not be updated"], status: 401
+      render json: @review.errors.full_messages, status: 422
     end
   end
 

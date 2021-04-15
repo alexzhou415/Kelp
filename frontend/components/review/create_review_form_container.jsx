@@ -8,8 +8,8 @@ const mapSTP = (state, ownProps) => ({
   errors: state.errors.reviews,
   business: state.entities.businesses[ownProps.match.params.businessId],
   currentUserId: state.session.id,
-  body: '',
-  rating: 0,
+  // body: '',
+  // rating: 0,
 });
 
 const mapDTP = (dispatch) => ({
