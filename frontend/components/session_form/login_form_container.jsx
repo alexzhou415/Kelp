@@ -13,6 +13,7 @@ const mapSTP = (state) => ({
 const mapDTP = (dispatch) => ({
   submitForm: (user) => dispatch(login(user)),
   clearErrors: () => dispatch(clearErrors())
+  
 });
 
 export default connect(mapSTP,mapDTP)(SessionForm);

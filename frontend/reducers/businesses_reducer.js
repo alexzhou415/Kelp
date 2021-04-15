@@ -1,4 +1,5 @@
 import {RECEIVE_BUSINESS, RECEIVE_BUSINESSES, REMOVE_BUSINESS} from '../actions/business_actions';
+import {RECEIVE_REVIEW} from '../actions/review_actions';
 
 const businessesReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -13,6 +14,10 @@ const businessesReducer = (state = {}, action) => {
     case REMOVE_BUSINESS:
       delete nextState[action.businessId]
       return nextState;
+    // case RECEIVE_REVIEW:
+    //   const review = action.review;
+    //   nextState[review.businessId].reviewIds.push(review.id);
+    //   return nextState;
     default:
       return state;
   }

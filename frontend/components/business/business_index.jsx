@@ -11,11 +11,16 @@ class BusinessIndex extends React.Component {
 
   render(){
       
-    const businesses = Object.values(this.props.businesses).map((business, i) => (
-      <li key={business.id} >
-        <BusinessIndexItem business={business}/>
-      </li>
-    ));
+    const businesses = Object.values(this.props.businesses).map((business, i) => {
+      if (i < 3) {
+        return(
+          <li key={business.id} >
+            <BusinessIndexItem business={business}/>
+          </li>
+        )
+      }
+        
+    });
     return (
       <div className="business-index">
         <div className="hot-businesses">Cool Businesses in Bikini Bottom</div>

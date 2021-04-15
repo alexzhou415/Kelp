@@ -27,7 +27,7 @@ class FrontPage extends React.Component {
           </div>
         </div>
         <div className="frontpage-business-index">
-          <BusinessIndexContainer />
+          <BusinessIndexContainer type="frontpage"/>
         </div>
       </div>
     );

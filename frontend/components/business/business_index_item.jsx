@@ -13,7 +13,7 @@ const BusinessIndexItem = (props) => {
         <div className="business_index_image_container">
           <img
             className="business-item-image"
-            src={props.business.photoUrl}
+            src={props.business.photoUrls[0]}
             alt=""
           />
         </div>
@@ -28,6 +28,7 @@ const BusinessIndexItem = (props) => {
             <img src={stars.IndexStar(props.business.rating)} alt="" />
           </div>
           <div className="business-item-cat">{props.business.category}</div>
+          <div className="bikini">Bikini Bottom</div>
         </div>
       </div>
     </Link>
