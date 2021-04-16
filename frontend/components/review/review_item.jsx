@@ -17,7 +17,6 @@ class ReviewItem extends React.Component {
   }
   render(){
     if (!this.props.review) return null;
-    console.log(this.props.review);
     const date = this.props.review.createdAt;
     if (!date) return null;
     const month = date.slice(5,7);

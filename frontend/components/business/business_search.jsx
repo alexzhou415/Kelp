@@ -38,7 +38,6 @@ class BusinessSearchPage extends React.Component {
       if (index.length < 1) {
         message = <div className="hot-businesses no-results">No results for {search.slice(1,search.length).split("%").join(" ")}</div>
       }
-      console.log(index);
     return (
       <div className="search-business-page">
         <div className="show-page-top-header">

@@ -24,11 +24,10 @@ class ReviewForm extends React.Component {
     this.renderError = this.renderError.bind(this);
   }
   componentDidMount(){
-    // console.log(this.props.review);
+    
     this.props.fetchBusiness(this.props.match.params.businessId);
     if (this.props.match.params.reviewId) {
       this.props.fetchReview(this.props.match.params.reviewId)
-        // .then((res) => console.log(res))
         .then((res) => this.setState({body: res.body, rating: res.rating}));
     }
     window.scrollTo(0, 0);
@@ -41,7 +40,6 @@ class ReviewForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const formData = new FormData();
-    // console.log(this.props);
     formData.append('review[body]', this.state.body);
     formData.append('review[rating]', this.state.rating);
     formData.append('review[author_id]', this.props.currentUserId);
@@ -54,19 +52,17 @@ class ReviewForm extends React.Component {
       }
     }
   
-    // console.log(formData);
+  
     if (this.props.match.params.reviewId) {
       this.props.submitReview(formData, this.props.review.id)
         .then(
           () => this.props.history.push(`/businesses/${this.props.match.params.businessId}`),
-          () => console.log(this.props)
       )
     }
     else {
       this.props.submitReview(formData)
         .then(
           () => this.props.history.push(`/businesses/${this.props.match.params.businessId}`),
-          () => console.log(this.props)
         )
     }
   }
@@ -117,9 +113,7 @@ class ReviewForm extends React.Component {
 
 
   render(){
-    // console.log(this.props.business);
-    // console.log(this.props.review);
-    // console.log(this.props);
+
     if (!this.props.business ) return null;
     if (this.props.match.params.reviewId) {
       if (!this.props.review) return null;
