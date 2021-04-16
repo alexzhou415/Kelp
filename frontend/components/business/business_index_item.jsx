@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 
 const BusinessIndexItem = (props) => {
-  // if (props.business.name=== 'Krabby Patties') return null;
   const starBar = () => {
     if (props.business.reviewIds) {
       return <img src={stars.IndexStar(props.business.averageRating)} alt="" />;

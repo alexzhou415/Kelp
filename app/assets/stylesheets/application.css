@@ -246,6 +246,7 @@ margin-left: 20px;
   display: flex;
   justify-content: flex-end;
   margin: 16px 40px;
+  /* width: 200px; */
 }
 
 .logout-bar div {
@@ -367,6 +368,10 @@ button:hover {
   display: flex;
 }
 
+.show-page-container {
+  width: 100%;
+}
+
 .show-page-top-header {
   display: flex;
   justify-content: space-between;
@@ -407,16 +412,15 @@ button:hover {
   width: 120.5px;
 }
 
-.show-page-header-info {
-  display: flex;
-  height: 100%;
-}
+
 .show-page-header-info-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
+  padding: 0;
+  align-items: center;
 }
 
 .show-page-biz-header {
@@ -424,22 +428,31 @@ button:hover {
   height: 430px;
   color: white;
   display: flex;
-  justify-content: center;
-
+  justify-content: flex-start;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
 }
-
-.show-page-header-photo {
+.show-page-header-info {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  min-width: 764px;
+  justify-self: center;
+}
+.show-page-header-photos {
   position: absolute;
   margin: auto;
   height: 100%;
   max-width: 1000px;
-  display: flex;
+  display: inline-block;;
   justify-content: center;
   filter: brightness(60%);
   object-fit: none;
 }
 
-.show-page-header-photo img{
+.show-page-header-photos img{
   position: relative;
   min-width: 760px;
   height: 100%;
@@ -452,16 +465,16 @@ button:hover {
   font-size: 50px;
   font-weight:bolder;
   top: 44%;
-  left: 7.5%;
-  min-width: 900px;
+  /* left: 7.5%; */
+  width: 764px;
 }
 
 .show-page-rating {
   position: relative;
   top: 44%;
-  left: 7.5%;
+  /* left: 7.5%; */
   display: flex;
-
+  width: 764px;
 }
 
 .show-page-stars  {
@@ -548,7 +561,7 @@ button:hover {
   position: relative;
   display: flex;
   top: 600px;
-  width: 100%;
+  width: 1000px;
   margin: auto;
   justify-content: center;
 }
@@ -638,12 +651,14 @@ button:hover {
 }
 
 .frontpage-business-index .business-index {
-  width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .frontpage-business-index .business-index-list {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -727,6 +742,15 @@ button:hover {
   height: 64px;
   width: 64px;
   border-radius: 50%;
+  overflow: hidden;
+}
+
+.review-header-profile img {
+  height: 80px;
+}
+
+.review-header-info {
+  margin-left: 10px;
 }
 
 .review-header-name {
@@ -915,7 +939,6 @@ button:hover {
 .search-business-page .business-index {
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start; */
   top: 50px;
   position: relative;
   margin: auto;
@@ -939,6 +962,7 @@ button:hover {
 .search-business-page .business-item-name {
   position: relative;
   left: 20px;
+  width: 300px;
 }
 
 .search-bar-container {
@@ -966,4 +990,58 @@ button:hover {
 .search-business-page .business-index-item:hover {
   box-shadow: 0 0 10px -1px lightgray;
  
+}
+
+.header-profile {
+  height: 64px;
+  width: 64px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid black;
+  border-radius: 50%;
+  right: 20px;
+}
+
+.header-profile img {
+  height: 64px;
+  overflow: hidden;
+  width: auto;
+  display: inline;
+  margin: 0 auto;
+}
+
+.splash-container .logout-button:hover {
+  background-color: white;
+  color: gray;
+}
+
+.logout-button {
+  width: 81px;
+}
+
+.show-page-photo {
+  height: 100%;
+}
+.show-page-photo-col {
+  flex: 30%;
+  height: 100%;
+}
+
+.biz-photo-banner {
+  display: flex;
+  height: 100%;
+}
+
+.logout-bar {
+  display: flex;
+  align-items: center;
+}
+
+.splash-container .logout-bar {
+  top: 10px;
+}
+
+.review-item-photo {
+  margin-right: 10px;
+  border-radius: 4px;
 }

@@ -46,12 +46,14 @@ class BusinessShow extends React.Component {
     
     if (!this.props.business) return null;
     let image;
-    if (this.props.business.photoUrls) image = this.props.business.photoUrls.first;
+    console.log(this.props.business);
+    if (this.props.business.photoUrls) image = this.props.business.photoUrls.map((url , i) => <div key={i} className="show-page-photo-col"><img className="show-page-photo" src={url} /></div>  );
     
     const reviews = Object.values(this.props.reviews).map((review) => (
       <ReviewItemContainer key={review.id} reviewId={review.id} />
     ));
-
+    let reviewAmount = "reviews"
+    if (this.props.business.reviewIds.length === 1) reviewAmount = "review";
     return (
       <div className="show-page-container">
         <div className="show-page-top-header">
@@ -68,9 +70,9 @@ class BusinessShow extends React.Component {
           </div>
         </div>
         <div className="show-page-biz-header">
-          <div className="show-page-header-photo">
-            <img src={this.props.business.photoUrls} alt="" />
-            <div>{image}</div>
+          <div className="show-page-header-photos">
+            {/* <img src={this.props.business.photoUrls} alt="" /> */}
+            <div className="biz-photo-banner">{image}</div>
           </div>
           <div className="show-page-header-info">
             <ul className="show-page-header-info-list">
@@ -82,7 +84,7 @@ class BusinessShow extends React.Component {
                     alt=""
                   />
                 </div>
-                <div className="show-page-review-numbers">{Object.keys(this.props.reviews).length} reviews</div>
+                <div className="show-page-review-numbers">{Object.keys(this.props.reviews).length} {reviewAmount}</div>
               </li>
             </ul>
           </div>

@@ -5,16 +5,19 @@ class ReviewItem extends React.Component {
  
   constructor(props){
     super(props);
+
+    this.photos = this.photos.bind(this);
   }
 
   photos(){
     const urls = this.props.review.photoUrls.map((url, i) => {
-      return <img key={i}src={url} alt=""/>
+      return <img className="review-item-photo" key={i}src={url} alt=""/>
     });
     return urls
   }
   render(){
     if (!this.props.review) return null;
+    console.log(this.props.review);
     const date = this.props.review.createdAt;
     if (!date) return null;
     const month = date.slice(5,7);
@@ -23,7 +26,9 @@ class ReviewItem extends React.Component {
     return (
       <div className="review-item-container">
         <div className="review-header-container">
-          <div className="review-header-profile"></div>
+          <div className="review-header-profile">
+            <img src={this.props.author.photoUrl} alt=""/>
+          </div>
           <div className="review-header-info">
             <div className="review-header-name">{this.props.author.username}</div>
             <div className="review-header-location">{this.props.author.location}</div>

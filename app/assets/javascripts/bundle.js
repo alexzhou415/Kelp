@@ -668,7 +668,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var BusinessIndexItem = function BusinessIndexItem(props) {
-  // if (props.business.name=== 'Krabby Patties') return null;
   var starBar = function starBar() {
     if (props.business.reviewIds) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
@@ -1120,13 +1119,24 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       if (!this.props.business) return null;
       var image;
-      if (this.props.business.photoUrls) image = this.props.business.photoUrls.first;
+      console.log(this.props.business);
+      if (this.props.business.photoUrls) image = this.props.business.photoUrls.map(function (url, i) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          key: i,
+          className: "show-page-photo-col"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "show-page-photo",
+          src: url
+        }));
+      });
       var reviews = Object.values(this.props.reviews).map(function (review) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_item_container__WEBPACK_IMPORTED_MODULE_4__.default, {
           key: review.id,
           reviewId: review.id
         });
       });
+      var reviewAmount = "reviews";
+      if (this.props.business.reviewIds.length === 1) reviewAmount = "review";
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1147,11 +1157,10 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_header_header_container__WEBPACK_IMPORTED_MODULE_1__.default, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page-biz-header"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "show-page-header-photo"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: this.props.business.photoUrls,
-        alt: ""
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, image)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "show-page-header-photos"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "biz-photo-banner"
+      }, image)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page-header-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "show-page-header-info-list"
@@ -1166,7 +1175,7 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
         alt: ""
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page-review-numbers"
-      }, Object.keys(this.props.reviews).length, " reviews"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, Object.keys(this.props.reviews).length, " ", reviewAmount))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "show-page-reviewbar"
@@ -1387,7 +1396,12 @@ var Header = function Header(_ref) {
   var logoutLink = function logoutLink() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
       className: "logout-bar"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, currentUser.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "header-profile"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      src: currentUser.photoUrl,
+      alt: ""
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, currentUser.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
       className: "logout-button",
       onClick: logout
     }, "Log Out"));
@@ -1454,6 +1468,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _app_assets_images_404_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../app/assets/images/404.png */ "./app/assets/images/404.png");
+
 
 
 var NotFound = function NotFound() {
@@ -1461,7 +1477,10 @@ var NotFound = function NotFound() {
     className: "not-found-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
     className: "not-found-header"
-  }, "404 error. Shiver me timbers! The page you're looking for cannot be found."));
+  }, "404 error. Shiver me timbers! The page you're looking for cannot be found."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: _app_assets_images_404_png__WEBPACK_IMPORTED_MODULE_1__.default,
+    alt: ""
+  }));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NotFound);
@@ -1884,9 +1903,13 @@ var ReviewItem = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(ReviewItem);
 
   function ReviewItem(props) {
+    var _this;
+
     _classCallCheck(this, ReviewItem);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.photos = _this.photos.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ReviewItem, [{
@@ -1894,6 +1917,7 @@ var ReviewItem = /*#__PURE__*/function (_React$Component) {
     value: function photos() {
       var urls = this.props.review.photoUrls.map(function (url, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+          className: "review-item-photo",
           key: i,
           src: url,
           alt: ""
@@ -1905,6 +1929,7 @@ var ReviewItem = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       if (!this.props.review) return null;
+      console.log(this.props.review);
       var date = this.props.review.createdAt;
       if (!date) return null;
       var month = date.slice(5, 7);
@@ -1916,7 +1941,10 @@ var ReviewItem = /*#__PURE__*/function (_React$Component) {
         className: "review-header-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-header-profile"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: this.props.author.photoUrl,
+        alt: ""
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-header-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "review-header-name"
@@ -39455,6 +39483,21 @@ function warning(condition, message) {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (warning);
 
+
+/***/ }),
+
+/***/ "./app/assets/images/404.png":
+/*!***********************************!*\
+  !*** ./app/assets/images/404.png ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "4b4430a0900c20d435302076a8f5eda9.png");
 
 /***/ }),
 
