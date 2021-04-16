@@ -75,7 +75,7 @@ class BusinessShow extends React.Component {
               <li className="show-page-rating">
                 <div className="show-page-stars">
                   <img
-                    src={stars.ShowStar(this.props.business.rating)}
+                    src={stars.ShowStar(this.props.business.averageRating)}
                     alt=""
                   />
                 </div>

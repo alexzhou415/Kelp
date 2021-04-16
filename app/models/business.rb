@@ -9,8 +9,6 @@ class Business < ApplicationRecord
     foreign_key: :business_id,
     class_name: 'Review'
 
-  private
-
   def average_rating
     reviews.average(:rating)
   end
