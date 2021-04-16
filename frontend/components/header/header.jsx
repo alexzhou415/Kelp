@@ -27,6 +27,9 @@ const Header = ({currentUser,logout,submitForm}) => {
 
   const logoutLink = () => (
     <nav className="logout-bar">
+      <div className="header-profile">
+        <img src={currentUser.photoUrl} alt=""/>
+      </div>
       <div>{currentUser.username}</div>
       <button className="logout-button" onClick={logout}>
         Log Out

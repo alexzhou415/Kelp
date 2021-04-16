@@ -2,7 +2,7 @@ import React from 'react';
 import HeaderContainer from '../header/header_container';
 import BusinessIndexContainer from '../business/business_index_container';
 import {Link} from 'react-router-dom';
-
+import Search from '../search/search';
 import logo from "../../../app/assets/images/logo_transparent.png";
 import splash from "../../../app/assets/images/krabby_patties.png";
 class FrontPage extends React.Component {
@@ -25,6 +25,7 @@ class FrontPage extends React.Component {
               alt=""
             />
           </div>
+          <Search/>
         </div>
         <div className="frontpage-business-index">
           <BusinessIndexContainer type="frontpage"/>

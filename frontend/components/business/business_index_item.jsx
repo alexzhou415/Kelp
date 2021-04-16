@@ -2,11 +2,20 @@ import React from 'react';
 import * as stars from "./business_rating_stars";
 import { Link } from "react-router-dom";
 
+
 const BusinessIndexItem = (props) => {
-  if (props.business.name=== 'Krabby Patties') return null;
+  const starBar = () => {
+    if (props.business.reviewIds) {
+      return <img src={stars.IndexStar(props.business.averageRating)} alt="" />;
+    }
+    return <img src={stars.IndexStar(0)} alt="" />;
+  };
+
   return (
     <Link
-      to={`businesses/${props.business.id}`}
+      to={{
+        pathname: `businesses/${props.business.id}`,
+      }}
       className="business-index-link"
     >
       <div className="business-index-item">
@@ -25,7 +34,7 @@ const BusinessIndexItem = (props) => {
             </div>
           </div>
           <div className="business-item-rating">
-            <img src={stars.IndexStar(props.business.rating)} alt="" />
+            {starBar()}
           </div>
           <div className="business-item-cat">{props.business.category}</div>
           <div className="bikini">Bikini Bottom</div>
