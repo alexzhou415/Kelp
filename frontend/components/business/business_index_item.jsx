@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 
 
 const BusinessIndexItem = (props) => {
-  if (props.business.name=== 'Krabby Patties') return null;
+  // if (props.business.name=== 'Krabby Patties') return null;
   const starBar = () => {
-    console.log(props.business);
     if (props.business.reviewIds) {
       return <img src={stars.IndexStar(props.business.averageRating)} alt="" />;
     }
@@ -15,7 +14,9 @@ const BusinessIndexItem = (props) => {
 
   return (
     <Link
-      to={`businesses/${props.business.id}`}
+      to={{
+        pathname: `businesses/${props.business.id}`,
+      }}
       className="business-index-link"
     >
       <div className="business-index-item">

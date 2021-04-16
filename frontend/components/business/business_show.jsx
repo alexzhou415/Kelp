@@ -4,12 +4,13 @@ import {Link} from 'react-router-dom';
 import logo from "../../../app/assets/images/logo_transparent.png";
 import * as stars from './business_rating_stars';
 import ReviewItemContainer from '../review/review_item_container';
+import Search from '../search/search';
 
 class BusinessShow extends React.Component {
 
   constructor(props) {
     super(props);
-
+  
   }
 
   componentDidMount(){
@@ -59,7 +60,9 @@ class BusinessShow extends React.Component {
               <img className="login-logo" src={logo} alt="" />
             </Link>
           </div>
-          <div className="show-page-search">Search Bar</div>
+          <div className="show-page-search">
+            <Search/>
+          </div>
           <div className="non-frontpage-login">
             <HeaderContainer />
           </div>
