@@ -1010,7 +1010,7 @@ button:hover {
   margin: 0 auto;
 }
 
-.splash-container .logout-button:hover {
+.splash-container .logout-button:hover , .splash-container .login-button:hover, .splash-container .demo-login:hover{
   background-color: white;
   color: gray;
 }
