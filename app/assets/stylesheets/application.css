@@ -847,10 +847,6 @@ button:hover {
 
 }
 
-.review-form-hovered-stars {
-  opacity: 0;
-}
-
 .review-form-stars-container div {
   height: 32px;
   width: 35.5px;
@@ -862,14 +858,16 @@ button:hover {
   cursor: pointer;
 }
 
+.review-form-hovered-stars {
+  opacity: 0;
+}
+
 .review-form-stars-container:hover .review-form-clicked-stars {
   opacity: 0;
-  /* background-color: purple; */
 }
 
 .review-form-stars-container:hover .review-form-hovered-stars {
   opacity: 1;
-  /* background-color: purple; */
 }
 
 .review-form-stars-description {
