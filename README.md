@@ -1,6 +1,6 @@
 # Kelp
 
-[https://kelp-alex.herokuapp.com/#/] (Live Site)
+https://kelp-alex.herokuapp.com/#/ (Live Site)
 
 ## Introduction
 
