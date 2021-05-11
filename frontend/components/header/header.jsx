@@ -12,9 +12,7 @@ const Header = ({currentUser,logout,submitForm}) => {
           </Link>
         </li>
         <li>
-          {/* <Link to="/demo"> */}
             <button className="demo-login" onClick={submitForm}>Demo Log In</button>
-          {/* </Link> */}
         </li>
         <li>
           <Link className="signup-link" to="/signup">

@@ -6,7 +6,7 @@ class Api::BusinessesController < ApplicationController
   end
 
   def show
-    @business = Business.find(params[:id])
+    @business = Business.with_attached_photos.find(params[:id])
     if @business
       render :show
     else

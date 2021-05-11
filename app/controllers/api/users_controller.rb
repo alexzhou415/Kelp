@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.with_attached_photos.find(params[:id])
     if @user
       render :show
     else

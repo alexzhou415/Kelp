@@ -4,7 +4,8 @@ import BusinessIndexContainer from '../business/business_index_container';
 import {Link} from 'react-router-dom';
 import Search from '../search/search';
 import logo from "../../../app/assets/images/logo_transparent.png";
-import splash from "../../../app/assets/images/krabby_patties.png";
+// import splash from "../../../app/assets/images/krabby_patties.png";
+import splash from "/app/assets/images/krabby_patties.png";
 class FrontPage extends React.Component {
 
 
@@ -21,14 +22,15 @@ class FrontPage extends React.Component {
           <div className="splash-image-container">
             <img
               className="splash-image"
-              src="https://kelp-seeds.s3-us-west-1.amazonaws.com/krabby_patties.png"
+              // src="https://kelp-seeds.s3-us-west-1.amazonaws.com/krabby_patties.png"
+              src={splash}
               alt=""
             />
           </div>
-          <Search/>
+          <Search />
         </div>
         <div className="frontpage-business-index">
-          <BusinessIndexContainer type="frontpage"/>
+          <BusinessIndexContainer type="frontpage" />
         </div>
       </div>
     );

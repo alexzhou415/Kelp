@@ -1,7 +1,7 @@
 class Api::ReviewsController < ApplicationController
 
   def show
-    @review = Review.find(params[:id])
+    @review = Review.with_attached_photos.find(params[:id])
     if @review
       render :show
     else

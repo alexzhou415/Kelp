@@ -951,7 +951,6 @@ var BusinessSearchPage = /*#__PURE__*/function (_React$Component) {
         }, "No results for ", search.slice(1, search.length).split("%").join(" "));
       }
 
-      console.log(index);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "search-business-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1119,7 +1118,6 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       if (!this.props.business) return null;
       var image;
-      console.log(this.props.business);
       if (this.props.business.photoUrls) image = this.props.business.photoUrls.map(function (url, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
           key: i,
@@ -1275,7 +1273,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _search_search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../search/search */ "./frontend/components/search/search.jsx");
 /* harmony import */ var _app_assets_images_logo_transparent_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../app/assets/images/logo_transparent.png */ "./app/assets/images/logo_transparent.png");
-/* harmony import */ var _app_assets_images_krabby_patties_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../app/assets/images/krabby_patties.png */ "./app/assets/images/krabby_patties.png");
+/* harmony import */ var _app_assets_images_krabby_patties_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../app/assets/images/krabby_patties.png */ "./app/assets/images/krabby_patties.png");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1303,6 +1301,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+ // import splash from "../../../app/assets/images/krabby_patties.png";
 
 
 
@@ -1336,8 +1335,9 @@ var FrontPage = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "splash-image-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "splash-image",
-        src: "https://kelp-seeds.s3-us-west-1.amazonaws.com/krabby_patties.png",
+        className: "splash-image" // src="https://kelp-seeds.s3-us-west-1.amazonaws.com/krabby_patties.png"
+        ,
+        src: _app_assets_images_krabby_patties_png__WEBPACK_IMPORTED_MODULE_5__.default,
         alt: ""
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_search_search__WEBPACK_IMPORTED_MODULE_3__.default, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "frontpage-business-index"
@@ -1615,12 +1615,10 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      // console.log(this.props.review);
       this.props.fetchBusiness(this.props.match.params.businessId);
 
       if (this.props.match.params.reviewId) {
-        this.props.fetchReview(this.props.match.params.reviewId) // .then((res) => console.log(res))
-        .then(function (res) {
+        this.props.fetchReview(this.props.match.params.reviewId).then(function (res) {
           return _this2.setState({
             body: res.body,
             rating: res.rating
@@ -1641,8 +1639,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
-      var formData = new FormData(); // console.log(this.props);
-
+      var formData = new FormData();
       formData.append('review[body]', this.state.body);
       formData.append('review[rating]', this.state.rating);
       formData.append('review[author_id]', this.props.currentUserId);
@@ -1653,20 +1650,15 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         for (var i = 0; i < this.state.photos.length; i++) {
           formData.append('review[photos][]', this.state.photos[i]);
         }
-      } // console.log(formData);
-
+      }
 
       if (this.props.match.params.reviewId) {
         this.props.submitReview(formData, this.props.review.id).then(function () {
           return _this3.props.history.push("/businesses/".concat(_this3.props.match.params.businessId));
-        }, function () {
-          return console.log(_this3.props);
         });
       } else {
         this.props.submitReview(formData).then(function () {
           return _this3.props.history.push("/businesses/".concat(_this3.props.match.params.businessId));
-        }, function () {
-          return console.log(_this3.props);
         });
       }
     }
@@ -1753,9 +1745,6 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this8 = this;
 
-      // console.log(this.props.business);
-      // console.log(this.props.review);
-      // console.log(this.props);
       if (!this.props.business) return null;
 
       if (this.props.match.params.reviewId) {
@@ -1929,7 +1918,6 @@ var ReviewItem = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       if (!this.props.review) return null;
-      console.log(this.props.review);
       var date = this.props.review.createdAt;
       if (!date) return null;
       var month = date.slice(5, 7);
