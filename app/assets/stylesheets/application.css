@@ -426,6 +426,11 @@ button:hover {
   align-items: center;
 }
 
+.show-page-header-info-list li {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .show-page-biz-header {
   position: relative;
   height: 430px;
