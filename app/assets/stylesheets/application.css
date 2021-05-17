@@ -227,7 +227,7 @@ width: 71.19px;
 height: 40px;
 font-weight: 900;
 min-width: 80px;
-padding: 0px 10px;
+/* padding: 0px 10px; */
 border-radius: 4px;
 border: 1px solid gray;
 background-color: transparent;
@@ -245,6 +245,7 @@ margin-left: 20px;
 .logout-bar {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin: 16px 40px;
   /* width: 200px; */
 }
@@ -262,8 +263,8 @@ margin-left: 20px;
 .login-signup {
   position: relative;
   /* top: 13px; */
-  width: 80%;
-  margin: auto;
+  /* width: 80%; */
+  margin-right: 40px;
 }
 
 .login-prompt {
@@ -401,6 +402,8 @@ button:hover {
 
 .non-frontpage-login {
   position: relative;
+  min-width: 420px;
+  max-width: 420px;
   /* top: -8%; */
 }
 
@@ -428,7 +431,7 @@ button:hover {
   height: 430px;
   color: white;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   max-width: 1500px;
   margin: auto;
   overflow: hidden;
@@ -459,6 +462,12 @@ button:hover {
   overflow: hidden;
   /* max-width: 1000px; */
   /* justify-content: flex-end; */
+}
+
+.show-page-photo-col {
+  height: 100%;
+  /* min-width: auto; */
+  width: 100%;
 }
 
 .show-page-header-photos img{
@@ -722,7 +731,7 @@ button:hover {
 .header-box .login-button-list{
   position: relative;
   top: 20px;
-  right: -9.3%;
+  /* right: -9.3%; */
 }
 
 .header-box .logout-bar {
@@ -977,6 +986,7 @@ button:hover {
 
 .search-bar-container {
   width: 500px;
+  margin-left: 20px;
 }
 
 .search-bar-input {
@@ -1027,24 +1037,11 @@ button:hover {
 }
 
 .logout-button {
-  width: 81px;
-}
-
-/* .show-page-photo {
-  height: 100%;
-} */
-.show-page-photo-col {
-  /* flex: 30%; */
-  height: 100%;
-  width: 100%;
+  min-width: 81px;
+  padding: 0px;
 }
 
 
-
-.logout-bar {
-  display: flex;
-  align-items: center;
-}
 
 .splash-container .logout-bar {
   top: 7px;
