@@ -1127,6 +1127,19 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
           src: url
         }));
       });
+      Object.values(this.props.reviews).map(function (review) {
+        console.log(review.photoUrls);
+        if (review.photoUrls) image.push(review.photoUrls.map(function (url, i) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            key: i + image.length,
+            className: "show-page-photo-col"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+            className: "show-page-photo",
+            src: url
+          }));
+        }));
+      });
+      console.log(image);
       var reviews = Object.values(this.props.reviews).map(function (review) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_item_container__WEBPACK_IMPORTED_MODULE_4__.default, {
           key: review.id,

@@ -48,7 +48,16 @@ class BusinessShow extends React.Component {
     let image;
  
     if (this.props.business.photoUrls) image = this.props.business.photoUrls.map((url , i) => <div key={i} className="show-page-photo-col"><img className="show-page-photo" src={url} /></div>  );
-    
+    Object.values(this.props.reviews).map((review) => {
+      console.log(review.photoUrls);
+      if (review.photoUrls) image.push(review.photoUrls.map((url, i) => (
+        <div key={i + image.length} className="show-page-photo-col">
+          <img className="show-page-photo" src={url} />
+        </div>
+      )
+      ));
+    });
+    console.log(image);
     const reviews = Object.values(this.props.reviews).map((review) => (
       <ReviewItemContainer key={review.id} reviewId={review.id} />
     ));
