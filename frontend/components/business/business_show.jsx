@@ -47,15 +47,28 @@ class BusinessShow extends React.Component {
     if (!this.props.business) return null;
     let image;
  
-    if (this.props.business.photoUrls) image = this.props.business.photoUrls.map((url , i) => <div key={i} className="show-page-photo-col"><img className="show-page-photo" src={url} /></div>  );
+    // if (this.props.business.photoUrls) image = this.props.business.photoUrls.map((url , i) => <div key={i} className="show-page-photo-col"><img className="show-page-photo" src={url} /></div>  );
+    // Object.values(this.props.reviews).map((review) => {
+    //   console.log(review.photoUrls);
+    //   if (review.photoUrls) image.push(review.photoUrls.map((url, i) => (
+    //     <div key={i + image.length} className="show-page-photo-col">
+    //       <img className="show-page-photo" src={url} />
+    //     </div>
+    //   )
+    //   ));
+    // });
+    if (this.props.business.photoUrls)
+      image = this.props.business.photoUrls.map((url, i) => (
+          <img key={i} className="show-page-photo" src={url} />
+      ));
     Object.values(this.props.reviews).map((review) => {
       console.log(review.photoUrls);
-      if (review.photoUrls) image.push(review.photoUrls.map((url, i) => (
-        <div key={i + image.length} className="show-page-photo-col">
-          <img className="show-page-photo" src={url} />
-        </div>
-      )
-      ));
+      if (review.photoUrls.length > 0)
+        image.concat(
+          review.photoUrls.map((url, i) => (
+              <img key={i + image.length}className="show-page-photo" src={url} />
+          ))
+        );
     });
     console.log(image);
     const reviews = Object.values(this.props.reviews).map((review) => (

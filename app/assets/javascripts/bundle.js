@@ -1117,26 +1117,32 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       if (!this.props.business) return null;
-      var image;
+      var image; // if (this.props.business.photoUrls) image = this.props.business.photoUrls.map((url , i) => <div key={i} className="show-page-photo-col"><img className="show-page-photo" src={url} /></div>  );
+      // Object.values(this.props.reviews).map((review) => {
+      //   console.log(review.photoUrls);
+      //   if (review.photoUrls) image.push(review.photoUrls.map((url, i) => (
+      //     <div key={i + image.length} className="show-page-photo-col">
+      //       <img className="show-page-photo" src={url} />
+      //     </div>
+      //   )
+      //   ));
+      // });
+
       if (this.props.business.photoUrls) image = this.props.business.photoUrls.map(function (url, i) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           key: i,
-          className: "show-page-photo-col"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
           className: "show-page-photo",
           src: url
-        }));
+        });
       });
       Object.values(this.props.reviews).map(function (review) {
         console.log(review.photoUrls);
-        if (review.photoUrls) image.push(review.photoUrls.map(function (url, i) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        if (review.photoUrls.length > 0) image.concat(review.photoUrls.map(function (url, i) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
             key: i + image.length,
-            className: "show-page-photo-col"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
             className: "show-page-photo",
             src: url
-          }));
+          });
         }));
       });
       console.log(image);
