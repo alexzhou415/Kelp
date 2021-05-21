@@ -421,7 +421,9 @@ var CLEAR_ERRORS = "CLEAR_ERRORS";
 var receiveUser = function receiveUser(user) {
   return {
     type: RECEIVE_USER,
-    user: user
+    user: user,
+    reviews: reviews,
+    businesses: businesses
   };
 };
 
@@ -1136,7 +1138,7 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
         });
       });
       Object.values(this.props.reviews).map(function (review) {
-        console.log(review.photoUrls);
+        // console.log(review.photoUrls);
         if (review.photoUrls.length > 0) image.concat(review.photoUrls.map(function (url, i) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
             key: i + image.length,
@@ -1144,8 +1146,8 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
             src: url
           });
         }));
-      });
-      console.log(image);
+      }); // console.log(image);
+
       var reviews = Object.values(this.props.reviews).map(function (review) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_review_review_item_container__WEBPACK_IMPORTED_MODULE_4__.default, {
           key: review.id,
@@ -2639,6 +2641,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/business_actions */ "./frontend/actions/business_actions.js");
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/review_actions */ "./frontend/actions/review_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
+
 
 
 
@@ -2659,6 +2663,9 @@ var businessesReducer = function businessesReducer() {
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_0__.REMOVE_BUSINESS:
       delete nextState[action.businessId];
       return nextState;
+
+    case _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__.RECEIVE_USER:
+      return action.businesses;
     // case RECEIVE_REVIEW:
     //   const review = action.review;
     //   nextState[review.businessId].reviewIds.push(review.id);
@@ -2780,6 +2787,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/review_actions */ "./frontend/actions/review_actions.js");
 /* harmony import */ var _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/business_actions */ "./frontend/actions/business_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
+
 
 
 
@@ -2791,6 +2800,9 @@ var reviewsReducer = function reviewsReducer() {
 
   switch (action.type) {
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_BUSINESS:
+      return Object.assign({}, action.reviews);
+
+    case _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__.RECEIVE_USER:
       return Object.assign({}, action.reviews);
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_REVIEW:

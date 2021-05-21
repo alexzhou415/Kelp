@@ -7,6 +7,8 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS";
 const receiveUser = (user) => ({
   type: RECEIVE_USER,
   user,
+  reviews,
+  businesses,
 });
 
 const receiveUserErrors = (errors) => ({

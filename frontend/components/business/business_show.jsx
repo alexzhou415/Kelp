@@ -62,7 +62,7 @@ class BusinessShow extends React.Component {
           <img key={i} className="show-page-photo" src={url} />
       ));
     Object.values(this.props.reviews).map((review) => {
-      console.log(review.photoUrls);
+      // console.log(review.photoUrls);
       if (review.photoUrls.length > 0)
         image.concat(
           review.photoUrls.map((url, i) => (
@@ -70,7 +70,7 @@ class BusinessShow extends React.Component {
           ))
         );
     });
-    console.log(image);
+    // console.log(image);
     const reviews = Object.values(this.props.reviews).map((review) => (
       <ReviewItemContainer key={review.id} reviewId={review.id} />
     ));
