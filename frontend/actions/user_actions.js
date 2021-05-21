@@ -4,7 +4,7 @@ export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
-const receiveUser = (user) => ({
+const receiveUser = ({user, reviews, businesses}) => ({
   type: RECEIVE_USER,
   user,
   reviews,

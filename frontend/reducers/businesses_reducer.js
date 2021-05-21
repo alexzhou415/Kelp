@@ -10,12 +10,14 @@ const businessesReducer = (state = {}, action) => {
     case RECEIVE_BUSINESSES:
       return action.businesses;
     case RECEIVE_BUSINESS:
+      console.log(action);
       nextState[action.business.id] = action.business;
       return nextState;
     case REMOVE_BUSINESS:
       delete nextState[action.businessId]
       return nextState;
     case RECEIVE_USER:
+      console.log(action);
       return action.businesses;
     // case RECEIVE_REVIEW:
     //   const review = action.review;

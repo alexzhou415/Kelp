@@ -9,6 +9,7 @@ import FrontPage from './frontpage/frontpage';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import DemoLoginContainer from './session_form/demo_login_container';
 import BusinessSearchContainer from './business/business_search_container';
+import ProfileContainer from './profile/profile_container';
 import NotFound from './not_found';
 
 
@@ -20,6 +21,7 @@ const App = () => (
       <AuthRoute exact path="/demo" component={DemoLoginContainer} />
       <Route exact path="/businesses/:businessId" component={BusinessShowContainer}/>
       <Route path="/search" component={BusinessSearchContainer}/>
+      <Route exact path="/users/:userId" component={ProfileContainer}/>
       <ProtectedRoute exact path="/businesses/:businessId/reviews/new" component={CreateReviewFormContainer}/>
       <ProtectedRoute exact path="/businesses/:businessId/reviews/:reviewId" component={UpdateReviewFormContainer}/>
       <Route exact path="/" component={FrontPage} />
