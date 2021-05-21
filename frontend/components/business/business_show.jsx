@@ -72,7 +72,7 @@ class BusinessShow extends React.Component {
     });
     // console.log(image);
     const reviews = Object.values(this.props.reviews).map((review) => (
-      <ReviewItemContainer key={review.id} reviewId={review.id} />
+      <ReviewItemContainer key={review.id} page="business" reviewId={review.id} />
     ));
     let reviewAmount = "reviews"
     if (this.props.business.reviewIds.length === 1) reviewAmount = "review";
