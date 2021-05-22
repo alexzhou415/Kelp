@@ -35,6 +35,7 @@ const BusinessIndexItem = (props) => {
           </div>
           <div className="business-item-rating">
             {starBar()}
+            <div>{Object.values(props.business.reviewIds).length}</div>
           </div>
           <div className="business-item-cat">{props.business.category}</div>
           <div className="bikini">Bikini Bottom</div>

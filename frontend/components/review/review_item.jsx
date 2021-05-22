@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Stars from '../business/business_rating_stars';
+import {Link} from 'react-router-dom';
 
 class ReviewItem extends React.Component {
  
@@ -22,14 +23,16 @@ class ReviewItem extends React.Component {
     const month = date.slice(5,7);
     const day = date.slice(8,10);
     const year = date.slice(0,4);
-    return (
+    if (this.props.page === "business") return (
       <div className="review-item-container">
         <div className="review-header-container">
           <div className="review-header-profile">
             <img src={this.props.author.photoUrl} alt=""/>
           </div>
           <div className="review-header-info">
-            <div className="review-header-name">{this.props.author.username}</div>
+            <Link className="review-header-link" to={`/users/${this.props.author.id}`}>
+              <div className="review-header-name">{this.props.author.username}</div>
+            </Link>
             <div className="review-header-location">{this.props.author.location}</div>
           </div>
         </div>
@@ -47,6 +50,10 @@ class ReviewItem extends React.Component {
         <div className="review-photos-container">{this.photos()}</div>
       </div>
     );
+
+    if (this.props.page === "profile") return (
+      <div></div>
+    )
   }
 };
 

@@ -75,7 +75,9 @@ class BusinessShow extends React.Component {
       <ReviewItemContainer key={review.id} page="business" reviewId={review.id} />
     ));
     let reviewAmount = "reviews"
-    if (this.props.business.reviewIds.length === 1) reviewAmount = "review";
+    console.log(this.props.business)
+    if (this.props.business.reviewIds && this.props.business.reviewIds.length === 1)
+      reviewAmount = "review";
     return (
       <div className="show-page-container">
         <div className="show-page-top-header">
