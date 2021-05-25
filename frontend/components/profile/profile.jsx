@@ -40,17 +40,23 @@ class Profile extends React.Component {
           </div>
         </div>
         <div className="profile-header">
-          <div className="profile-pic">
-            <img src={this.props.user.photoUrl} alt="" />
-          </div>
-          <div className="profile-info">
-            <div className="profile-username">{this.props.user.username}</div>
-            <div className="profile-location">{this.props.user.location}</div>
+          <div className="profile-banner"></div>
+          <div className="profile-header-content">
+            <div className="profile-pic">
+              <img src={this.props.user.photoUrl} alt="" />
+            </div>
+            <div className="profile-info">
+              <div className="profile-username">{this.props.user.username}</div>
+              <div className="profile-location">From {this.props.user.location}</div>
+            </div>
           </div>
         </div>
         <div className="profile-reviews">
-          <div className="profile-review-header">Reviews</div>
-          {reviews}
+          <div className="profile-blankspace"></div>
+          <div className="profile-review-content">
+            <div className="profile-review-header">Reviews</div>
+            <div className="profile-review-items">{reviews}</div>
+          </div>
         </div>
       </div>
     );

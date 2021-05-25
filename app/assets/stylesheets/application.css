@@ -378,7 +378,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 140px;
+  height:130px;
   border-bottom: 1px solid lightgray;
 }
 
@@ -1078,4 +1078,84 @@ button:hover {
 .not-found-container img {
   width: 100%;
   position: absolute;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-header {
+  /* width: 50%;
+  min-width: 764px; */
+  width: 100%;
+  min-width: 850px;
+  display: flex;
+  justify-content: center;
+  height: 190px;
+}
+
+.profile-header-content {
+  width: 67%;
+  min-width: 850px;
+  display: flex;
+  justify-content: flex-start;
+  margin: auto;
+  left: 0px;
+  padding: 0px;
+  height: 100%;
+  /* border: 1px solid red; */
+}
+
+.profile-banner {
+  background-color: #E8E8E8;
+  opacity: .5;
+  border: none;
+  height: 190px;
+  position: absolute;
+  width: 100%;
+  min-width: 1000px;
+  z-index: -5;
+}
+
+.profile-pic {
+  position: relative;
+  top: 30px;
+}
+
+.profile-pic img{
+  border-radius: 4px;
+  height: 215px;
+}
+
+.profile-info {
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-username {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.profile-reviews {
+  width: 67%;
+  min-width: 850px;
+  display: flex;
+  margin: auto;
+}
+
+.profile-blankspace {
+  min-width: 215px;
+}
+
+.profile-review-content {
+  margin-left: 25px;
+}
+
+.profile-review-header {
+  font-size: 22px;
+  font-weight: bolder;
 }
