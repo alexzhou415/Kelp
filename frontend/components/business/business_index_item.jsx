@@ -10,7 +10,7 @@ const BusinessIndexItem = (props) => {
     }
     return <img src={stars.IndexStar(0)} alt="" />;
   };
-
+  if (!props.business.reviewIds) return null;
   return (
     <Link
       to={{

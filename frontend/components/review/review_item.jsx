@@ -10,6 +10,10 @@ class ReviewItem extends React.Component {
     this.photos = this.photos.bind(this);
   }
 
+  // componentDidMount(){
+  //   this.props.fetchBusiness(this.props.review.businessId);
+  // }
+
   photos(){
     const urls = this.props.review.photoUrls.map((url, i) => {
       return <img className="review-item-photo" key={i}src={url} alt=""/>
@@ -50,10 +54,41 @@ class ReviewItem extends React.Component {
         <div className="review-photos-container">{this.photos()}</div>
       </div>
     );
-
+    // console.log(this.props);
     if (this.props.page === "profile") return (
-      <div></div>
-    )
+      <div className="profile-review-container">
+        <div className="review-header-container">
+          <div className="review-header-profile">
+            <img src={this.props.business.photoUrls[0]} alt="" />
+          </div>
+          <div className="review-header-info">
+            <Link
+              className="review-header-link"
+              to={`/businesses/${this.props.business.id}`}
+            >
+              <div className="review-header-name">
+                {this.props.business.name}
+              </div>
+            </Link>
+            <div className="review-header-location">
+              {this.props.business.address}
+            </div>
+          </div>
+        </div>
+        <div className="review-rating-container">
+          <img
+            className="review-item-stars"
+            src={Stars.IndexStar(this.props.review.rating)}
+            alt=""
+          />
+          <div className="review-item-date">
+            {month}/{day}/{year}
+          </div>
+        </div>
+        <div className="review-body-container">{this.props.review.body}</div>
+        <div className="review-photos-container">{this.photos()}</div>
+      </div>
+    );
   }
 };
 

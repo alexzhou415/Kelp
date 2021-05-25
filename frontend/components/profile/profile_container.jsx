@@ -8,9 +8,11 @@ import {fetchUser} from '../../actions/user_actions';
 const mapSTP = (state, {match}) => {
   const user = state.entities.users[match.params.userId];
   const reviews = state.entities.reviews;
+  const businesses = state.entities.businesses;
   return {
     user,
     reviews,
+    businesses,
   }
 };
 

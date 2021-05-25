@@ -17,7 +17,7 @@ const businessesReducer = (state = {}, action) => {
       delete nextState[action.businessId]
       return nextState;
     case RECEIVE_USER:
-      console.log(action);
+      // console.log(action);
       return action.businesses;
     // case RECEIVE_REVIEW:
     //   const review = action.review;
