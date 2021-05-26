@@ -31,13 +31,22 @@ class ReviewItem extends React.Component {
       <div className="review-item-container">
         <div className="review-header-container">
           <div className="review-header-profile">
-            <img src={this.props.author.photoUrl} alt=""/>
+            <Link to={`/users/${this.props.author.id}`}>
+              <img src={this.props.author.photoUrl} alt="" />
+            </Link>
           </div>
           <div className="review-header-info">
-            <Link className="review-header-link" to={`/users/${this.props.author.id}`}>
-              <div className="review-header-name">{this.props.author.username}</div>
+            <Link
+              className="review-header-link"
+              to={`/users/${this.props.author.id}`}
+            >
+              <div className="review-header-name">
+                {this.props.author.username}
+              </div>
             </Link>
-            <div className="review-header-location">{this.props.author.location}</div>
+            <div className="review-header-location">
+              {this.props.author.location}
+            </div>
           </div>
         </div>
         <div className="review-rating-container">
@@ -59,7 +68,9 @@ class ReviewItem extends React.Component {
       <div className="profile-review-container">
         <div className="review-header-container">
           <div className="review-header-profile">
-            <img src={this.props.business.photoUrls[0]} alt="" />
+            <Link to={`/businesses/${this.props.business.id}`}>
+              <img src={this.props.business.photoUrls[0]} alt="" />
+            </Link>
           </div>
           <div className="review-header-info">
             <Link

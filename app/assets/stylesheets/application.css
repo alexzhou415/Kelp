@@ -1152,10 +1152,35 @@ button:hover {
 }
 
 .profile-review-content {
-  margin-left: 25px;
+  margin-top: 20px;
+  margin-left: 30px;
 }
 
 .profile-review-header {
   font-size: 22px;
   font-weight: bolder;
+  padding-bottom: 15px;
+  border-bottom: 1px solid lightgray;
+}
+
+.profile-review-container {
+  margin: 20px 0px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.profile-reviews .review-header-name {
+  color: #0073bb;
+}
+
+.show-page-content .review-header-name {
+  color: black;
+}
+
+.review-header-name:hover {
+  text-decoration: underline;
+}
+
+.profile-reviews .review-header-profile {
+  border-radius: 4px;
 }
