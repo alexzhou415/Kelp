@@ -778,7 +778,7 @@ button:hover {
 
 .header-box .login-button-list{
   position: relative;
-  top: 20px;
+  /* top: 20px; */
   /* right: -9.3%; */
 }
 
