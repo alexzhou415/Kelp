@@ -10,7 +10,7 @@ const businessesReducer = (state = {}, action) => {
     case RECEIVE_BUSINESSES:
       return action.businesses;
     case RECEIVE_BUSINESS:
-      console.log(action);
+      // console.log(action);
       nextState[action.business.id] = action.business;
       return nextState;
     case REMOVE_BUSINESS:

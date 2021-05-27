@@ -13,6 +13,7 @@ class Profile extends React.Component {
 
   componentDidMount(){
     this.props.fetchUser(this.props.match.params.userId);
+    window.scrollTo(0, 0);
     // this.props.fetchBusinesses();
     // console.log("mounted");
   }

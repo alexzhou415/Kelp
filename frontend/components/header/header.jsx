@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 
 const Header = ({currentUser,logout,submitForm}) => {
+  // const Header = (props) => {
   const sessionLinks = () => (
     <nav className="login-signup">
       <ul className="login-button-list">
@@ -34,7 +35,7 @@ const Header = ({currentUser,logout,submitForm}) => {
       </button>
     </nav>
   );
-
+  console.log(currentUser);
   return currentUser ? logoutLink() : sessionLinks();
 };
 

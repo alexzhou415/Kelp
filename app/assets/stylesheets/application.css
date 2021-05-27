@@ -99,6 +99,7 @@ body {
   top: 100px;
   position: absolute;
   width: 100%;
+  min-width: 1050px;
   height: 600px;
 }
 
@@ -247,7 +248,8 @@ margin-left: 20px;
   justify-content: flex-end;
   align-items: center;
   margin: 16px 40px;
-  /* width: 200px; */
+  /* width: 100%; */
+  /* min-width: 1050px; */
 }
 
 .logout-bar div {
@@ -651,6 +653,18 @@ button:hover {
   color: black;
 }
 
+.business-item-name:hover {
+  text-decoration: underline;
+}
+
+.frontpage-business-index .business-item-name {
+  color: #0073bb;
+}
+
+/* .search-business-page .business-index-item {
+  color
+} */
+
 .business-item-address-container {
   position: absolute;
   right: 100px;
@@ -668,13 +682,31 @@ button:hover {
 .business-item-rating {
   margin-top: 5px;
   width: 108px;
+  /* width: 150px; */
+  display: flex;
+  align-items: center;
+}
+
+.business-item-rating img {
+  width: 108px;
+  height: 20px;
+}
+
+.business-item-rating div {
+  color: gray;
+  margin-left: 7px;
+  font-size: 14px;
+}
+
+.business-item-rating .business-index-item-amount {
+  margin-left: 4px;
 }
 
 .business-item-cat {
   position: relative;
   color: gray;
   font-size: 15px;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   
 } 
 
@@ -1048,6 +1080,10 @@ button:hover {
   margin: 0 auto; */
 }
 
+.splash-container {
+  min-width: 1050px;
+}
+
 .splash-container .logout-button:hover , .splash-container .login-button:hover, .splash-container .demo-login:hover{
   background-color: white;
   color: gray;
@@ -1159,6 +1195,7 @@ button:hover {
 .profile-review-header {
   font-size: 22px;
   font-weight: bolder;
+  color: indigo;
   padding-bottom: 15px;
   border-bottom: 1px solid lightgray;
 }

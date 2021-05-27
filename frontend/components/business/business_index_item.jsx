@@ -11,6 +11,10 @@ const BusinessIndexItem = (props) => {
     return <img src={stars.IndexStar(0)} alt="" />;
   };
   if (!props.business.reviewIds) return null;
+  let reviewAmount = "reviews";
+  // console.log(this.props.business)
+  if (props.business.reviewIds && props.business.reviewIds.length === 1)
+    reviewAmount = "review";
   return (
     <Link
       to={{
@@ -36,6 +40,7 @@ const BusinessIndexItem = (props) => {
           <div className="business-item-rating">
             {starBar()}
             <div>{Object.values(props.business.reviewIds).length}</div>
+            <div className="business-index-item-amount">{reviewAmount}</div>
           </div>
           <div className="business-item-cat">{props.business.category}</div>
           <div className="bikini">Bikini Bottom</div>

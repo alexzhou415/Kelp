@@ -8,6 +8,7 @@ class BusinessSearchPage extends React.Component {
 
   componentDidMount(){
     this.props.fetchBusinesses();
+    window.scrollTo(0, 0);
   }
 
   render(){

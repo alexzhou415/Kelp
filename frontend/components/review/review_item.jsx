@@ -27,6 +27,7 @@ class ReviewItem extends React.Component {
     const month = date.slice(5,7);
     const day = date.slice(8,10);
     const year = date.slice(0,4);
+    
     if (this.props.page === "business") return (
       <div className="review-item-container">
         <div className="review-header-container">

@@ -342,7 +342,8 @@ var LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 var CLEAR_ERRORS = "CLEAR_ERRORS";
 
-var receiveCurrentUser = function receiveCurrentUser(user) {
+var receiveCurrentUser = function receiveCurrentUser(_ref) {
+  var user = _ref.user;
   return {
     type: RECEIVE_CURRENT_USER,
     user: user
@@ -694,6 +695,9 @@ var BusinessIndexItem = function BusinessIndexItem(props) {
   };
 
   if (!props.business.reviewIds) return null;
+  var reviewAmount = "reviews"; // console.log(this.props.business)
+
+  if (props.business.reviewIds && props.business.reviewIds.length === 1) reviewAmount = "review";
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
     to: {
       pathname: "businesses/".concat(props.business.id)
@@ -717,7 +721,9 @@ var BusinessIndexItem = function BusinessIndexItem(props) {
     className: "business-item-address"
   }, props.business.address)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "business-item-rating"
-  }, starBar(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, Object.values(props.business.reviewIds).length)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, starBar(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, Object.values(props.business.reviewIds).length), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "business-index-item-amount"
+  }, reviewAmount)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "business-item-cat"
   }, props.business.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "bikini"
@@ -924,6 +930,7 @@ var BusinessSearchPage = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchBusinesses();
+      window.scrollTo(0, 0);
     }
   }, {
     key: "render",
@@ -1408,6 +1415,7 @@ var Header = function Header(_ref) {
       logout = _ref.logout,
       submitForm = _ref.submitForm;
 
+  // const Header = (props) => {
   var sessionLinks = function sessionLinks() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", {
       className: "login-signup"
@@ -1440,6 +1448,7 @@ var Header = function Header(_ref) {
     }, "Log Out"));
   };
 
+  console.log(currentUser);
   return currentUser ? logoutLink() : sessionLinks();
 };
 
@@ -1467,7 +1476,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapSTP = function mapSTP(state) {
   return {
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id] // currentUser: state.session.id,
+
   };
 };
 
@@ -1580,7 +1590,8 @@ var Profile = /*#__PURE__*/function (_React$Component) {
   _createClass(Profile, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchUser(this.props.match.params.userId); // this.props.fetchBusinesses();
+      this.props.fetchUser(this.props.match.params.userId);
+      window.scrollTo(0, 0); // this.props.fetchBusinesses();
       // console.log("mounted");
     }
   }, {
@@ -2907,7 +2918,7 @@ var businessesReducer = function businessesReducer() {
       return action.businesses;
 
     case _actions_business_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_BUSINESS:
-      console.log(action);
+      // console.log(action);
       nextState[action.business.id] = action.business;
       return nextState;
 
@@ -3186,6 +3197,7 @@ var sessionReducer = function sessionReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_USER:
+      console.log(action);
       return {
         id: action.user.id
       };
