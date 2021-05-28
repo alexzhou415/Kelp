@@ -35,7 +35,7 @@ const Header = ({currentUser,logout,submitForm}) => {
       </button>
     </nav>
   );
-  console.log(currentUser);
+  // console.log(currentUser);
   return currentUser ? logoutLink() : sessionLinks();
 };
 

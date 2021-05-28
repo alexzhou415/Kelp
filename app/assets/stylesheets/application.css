@@ -634,14 +634,33 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* overflow: hidden; */
+  /* border: 1px solid red; */
+  /* margin: 0px 25px; */
+}
+
+.business-item-image-limiter {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  /* overflow: hidden; */
+}
+
+.frontpage-business-index .business-item-image-limiter {
+  height: 100%;
+  width: 100%;
 }
 
 .business-item-image {
-  width: 200px;
+  width: 100%;
   height: 200px;
   position: absolute;
   border-radius: 4px;
   /* overflow: hidden; */
+  object-fit: cover;
 }
 .business-index-item-info {
   position: relative;

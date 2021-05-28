@@ -24,11 +24,18 @@ const BusinessIndexItem = (props) => {
     >
       <div className="business-index-item">
         <div className="business_index_image_container">
-          <img
+          <div className="business-item-image-limiter">
+            <img
+              className="business-item-image"
+              src={props.business.photoUrls[0]}
+              alt=""
+            />
+          </div>
+          {/* <img
             className="business-item-image"
             src={props.business.photoUrls[0]}
             alt=""
-          />
+          /> */}
         </div>
         <div className="business-index-item-info">
           <div className="business-item-name">{props.business.name}</div>
