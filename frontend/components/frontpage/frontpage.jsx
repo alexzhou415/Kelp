@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import Search from '../search/search';
 import logo from "../../../app/assets/images/logo_transparent.png";
 // import splash from "../../../app/assets/images/krabby_patties.png";
-import splash from "/app/assets/images/krabby_patties.png";
+import splash from "../../../app/assets/images/krabby_patties.png";
 class FrontPage extends React.Component {
 
 
