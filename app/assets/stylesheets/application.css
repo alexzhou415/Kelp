@@ -375,6 +375,9 @@ button:hover {
 .show-page-container {
   width: 100%;
   min-width: 1050px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
 }
 
 .show-page-top-header {
@@ -445,12 +448,12 @@ button:hover {
   position: relative;
   height: 430px;
   color: white;
-  display: block;
-  /* justify-content: center; */
+  display: flex;
+  justify-content: center;
   /* max-width: 1500px; */
   /* min-width: 1500px; */
   margin: auto;
-  left: 0;
+  /* left: 0; */
   overflow: hidden;
 }
 .show-page-header-info {
@@ -467,7 +470,7 @@ button:hover {
   margin-left: auto;
   /* left: 40px; */
   height: 100%;
-  max-width: 1500px;
+  max-width: 1922px;
   display: flex;
   justify-content: center;
   filter: brightness(60%);
