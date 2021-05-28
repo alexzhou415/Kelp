@@ -23,7 +23,7 @@ class FrontPage extends React.Component {
             <img
               className="splash-image"
               // src="https://kelp-seeds.s3-us-west-1.amazonaws.com/krabby_patties.png"
-              src={splash}
+              src="https://i.imgur.com/i7qqwRp.png"
               alt=""
             />
           </div>

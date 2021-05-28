@@ -1379,7 +1379,7 @@ var FrontPage = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "splash-image" // src="https://kelp-seeds.s3-us-west-1.amazonaws.com/krabby_patties.png"
         ,
-        src: _app_assets_images_krabby_patties_png__WEBPACK_IMPORTED_MODULE_5__.default,
+        src: "https://i.imgur.com/i7qqwRp.png",
         alt: ""
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_search_search__WEBPACK_IMPORTED_MODULE_3__.default, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "frontpage-business-index"
@@ -1523,7 +1523,7 @@ var NotFound = function NotFound() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
     className: "not-found-header"
   }, "404 error. Shiver me timbers! The page you're looking for cannot be found."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _app_assets_images_404_png__WEBPACK_IMPORTED_MODULE_1__.default,
+    src: "https://i.imgur.com/kulaKPG.png",
     alt: ""
   }));
 };
