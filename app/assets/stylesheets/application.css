@@ -1171,7 +1171,8 @@ button:hover {
 }
 
 .profile-banner {
-  background-color: #E8E8E8;
+  /* background-color: #E8E8E8; */
+  background-color: aqua;
   opacity: .5;
   border: none;
   height: 190px;
@@ -1247,4 +1248,18 @@ button:hover {
 
 .profile-reviews .review-header-profile {
   border-radius: 4px;
+}
+
+.link-labels {
+  position: absolute;
+  left: 7px;
+  display: flex;
+  flex-direction: column;
+  height: 180px;
+  justify-content: space-between;
+}
+
+a.label {
+  text-decoration: none;
+  color: black;
 }
