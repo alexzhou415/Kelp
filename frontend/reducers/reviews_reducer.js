@@ -11,9 +11,9 @@ const reviewsReducer =(state = {}, action) => {
       return Object.assign({}, action.reviews);
     case RECEIVE_USER:
       return Object.assign({}, action.reviews);
-    case RECEIVE_REVIEW:
-      nextState[action.review.id] = action.review;
-      return nextState;
+    // case RECEIVE_REVIEW:
+    //   nextState[action.review.id] = action.review;
+    //   return nextState;
     case REMOVE_REVIEW:
       delete nextState[action.reviewId];
       return nextState;

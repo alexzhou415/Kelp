@@ -45,7 +45,7 @@ class BusinessShow extends React.Component {
   render() { 
     
     if (!this.props.business) return null;
-    let image;
+    let image = [];
  
     // if (this.props.business.photoUrls) image = this.props.business.photoUrls.map((url , i) => <div key={i} className="show-page-photo-col"><img className="show-page-photo" src={url} /></div>  );
     // Object.values(this.props.reviews).map((review) => {

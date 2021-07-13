@@ -1138,7 +1138,7 @@ var BusinessShow = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       if (!this.props.business) return null;
-      var image; // if (this.props.business.photoUrls) image = this.props.business.photoUrls.map((url , i) => <div key={i} className="show-page-photo-col"><img className="show-page-photo" src={url} /></div>  );
+      var image = []; // if (this.props.business.photoUrls) image = this.props.business.photoUrls.map((url , i) => <div key={i} className="show-page-photo-col"><img className="show-page-photo" src={url} /></div>  );
       // Object.values(this.props.reviews).map((review) => {
       //   console.log(review.photoUrls);
       //   if (review.photoUrls) image.push(review.photoUrls.map((url, i) => (
@@ -1386,19 +1386,22 @@ var FrontPage = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "label"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "https://www.linkedin.com/in/alex-zhou-ba3614148/"
+        href: "https://www.linkedin.com/in/alex-zhou-ba3614148/",
+        target: "_blank"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
         className: "fab fa-linkedin fa-3x"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "label"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "https://github.com/alexzhou415"
+        href: "https://github.com/alexzhou415",
+        target: "_blank"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
         className: "fab fa-github-square fa-3x"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "label"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-        href: "https://alexzhou415.github.io/Portfolio/"
+        href: "https://alexzhou415.github.io/Portfolio/",
+        target: "_blank"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
         className: "fas fa-folder-open fa-3x"
       })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1869,16 +1872,15 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   _createClass(ReviewForm, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
-
       this.props.fetchBusiness(this.props.match.params.businessId);
 
       if (this.props.match.params.reviewId) {
-        this.props.fetchReview(this.props.match.params.reviewId).then(function (res) {
-          return _this2.setState({
-            body: res.body,
-            rating: res.rating
-          });
+        var currentReview = this.props.review; // this.props.fetchReview(this.props.match.params.reviewId)
+        //   .then((res) => this.setState({body: res.body, rating: res.rating}));
+
+        this.setState({
+          body: currentReview.body,
+          rating: currentReview.rating
         });
       }
 
@@ -1892,7 +1894,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this3 = this;
+      var _this2 = this;
 
       e.preventDefault();
       var formData = new FormData();
@@ -1906,15 +1908,15 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         for (var i = 0; i < this.state.photos.length; i++) {
           formData.append('review[photos][]', this.state.photos[i]);
         }
-      }
+      } else {}
 
       if (this.props.match.params.reviewId) {
         this.props.submitReview(formData, this.props.review.id).then(function () {
-          return _this3.props.history.push("/businesses/".concat(_this3.props.match.params.businessId));
+          return _this2.props.history.push("/businesses/".concat(_this2.props.match.params.businessId));
         });
       } else {
         this.props.submitReview(formData).then(function () {
-          return _this3.props.history.push("/businesses/".concat(_this3.props.match.params.businessId));
+          return _this2.props.history.push("/businesses/".concat(_this2.props.match.params.businessId));
         });
       }
     }
@@ -1927,10 +1929,10 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleHover",
     value: function handleHover(stars) {
-      var _this4 = this;
+      var _this3 = this;
 
       return function () {
-        return _this4.setState({
+        return _this3.setState({
           hoverRating: stars
         });
       };
@@ -1938,10 +1940,10 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleUnhover",
     value: function handleUnhover() {
-      var _this5 = this;
+      var _this4 = this;
 
       return function () {
-        return _this5.setState({
+        return _this4.setState({
           hoverRating: 0
         });
       };
@@ -1949,10 +1951,10 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleClick",
     value: function handleClick(stars) {
-      var _this6 = this;
+      var _this5 = this;
 
       return function () {
-        return _this6.setState({
+        return _this5.setState({
           rating: stars
         });
       };
@@ -1960,10 +1962,10 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleInput",
     value: function handleInput() {
-      var _this7 = this;
+      var _this6 = this;
 
       return function (e) {
-        return _this7.setState({
+        return _this6.setState({
           body: e.target.value
         });
       };
@@ -1999,7 +2001,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this8 = this;
+      var _this7 = this;
 
       if (!this.props.business) return null;
 
@@ -2085,7 +2087,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         type: "file",
         className: "review-form-photos-upload",
         onChange: function onChange(e) {
-          return _this8.setState({
+          return _this7.setState({
             photos: e.target.files
           });
         },
@@ -2789,7 +2791,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       }, usernameField, breaks, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
         className: "login-field-label"
       }, "Email", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-        type: "text",
+        type: "email",
         onChange: this.handleInput("email"),
         value: this.state.email,
         className: "login-input",
@@ -3091,10 +3093,9 @@ var reviewsReducer = function reviewsReducer() {
 
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__.RECEIVE_USER:
       return Object.assign({}, action.reviews);
-
-    case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_REVIEW:
-      nextState[action.review.id] = action.review;
-      return nextState;
+    // case RECEIVE_REVIEW:
+    //   nextState[action.review.id] = action.review;
+    //   return nextState;
 
     case _actions_review_actions__WEBPACK_IMPORTED_MODULE_0__.REMOVE_REVIEW:
       delete nextState[action.reviewId];

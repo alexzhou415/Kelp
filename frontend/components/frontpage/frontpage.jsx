@@ -30,9 +30,9 @@ class FrontPage extends React.Component {
           <Search />
         </div>
         <div className="link-labels">
-          <div className="label"><a href="https://www.linkedin.com/in/alex-zhou-ba3614148/"><i className="fab fa-linkedin fa-3x"></i></a></div>
-          <div className="label"><a href="https://github.com/alexzhou415"><i className="fab fa-github-square fa-3x"></i></a></div>
-          <div className="label"><a href="https://alexzhou415.github.io/Portfolio/"><i className="fas fa-folder-open fa-3x"></i></a></div>
+          <div className="label"><a href="https://www.linkedin.com/in/alex-zhou-ba3614148/" target="_blank"><i className="fab fa-linkedin fa-3x"></i></a></div>
+          <div className="label"><a href="https://github.com/alexzhou415" target="_blank"><i className="fab fa-github-square fa-3x"></i></a></div>
+          <div className="label"><a href="https://alexzhou415.github.io/Portfolio/" target="_blank"><i className="fas fa-folder-open fa-3x"></i></a></div>
         </div>
         <div className="frontpage-business-index">
           <BusinessIndexContainer type="frontpage" />

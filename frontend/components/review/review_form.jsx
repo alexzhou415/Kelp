@@ -27,8 +27,10 @@ class ReviewForm extends React.Component {
     
     this.props.fetchBusiness(this.props.match.params.businessId);
     if (this.props.match.params.reviewId) {
-      this.props.fetchReview(this.props.match.params.reviewId)
-        .then((res) => this.setState({body: res.body, rating: res.rating}));
+      let currentReview = this.props.review;
+      // this.props.fetchReview(this.props.match.params.reviewId)
+      //   .then((res) => this.setState({body: res.body, rating: res.rating}));
+      this.setState({ body: currentReview.body, rating: currentReview.rating });
     }
     window.scrollTo(0, 0);
   }
@@ -50,6 +52,8 @@ class ReviewForm extends React.Component {
       for (let i = 0; i < this.state.photos.length; i++) {
         formData.append('review[photos][]', this.state.photos[i]);
       }
+    } else {
+
     }
   
   

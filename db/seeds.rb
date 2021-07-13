@@ -49,7 +49,7 @@ r3 = Review.create!(rating: 3, author_id: u1.id, business_id: b6.id, body: 'I am
 r3 = Review.create!(rating: 4, author_id: krabs.id, business_id: b7.id, body: 'This is where I went to school, and I turned out alright.')
 r3 = Review.create!(rating: 2, author_id: sponge.id, business_id: b8.id, body: 'Upon arriving, my friend and I were turned away at the door. Something about not being tough enough to enter. That is just outrageous.')
 r3 = Review.create!(rating: 5, author_id: gary.id, business_id: b8.id, body: 'I am here all the time and have known the owner for years. There is no better place to get blackout drunk.')
-r3 = Review.create!(rating: 1, author_id: star.id, business_id: b5.id, body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+r3 = Review.create!(rating: 1, author_id: star.id, business_id: b5.id, body: 'The chum made my stomach hurt.')
 
 
 file1 = open('https://kelp-seeds.s3-us-west-1.amazonaws.com/krusty_krab.png')

@@ -92,6 +92,9 @@ select {
 body {
   font-family: 'Open Sans', sans-serif;
 }
+.fas, .fab {
+  color: indigo;
+}
 
 .splash-logo-container {
   display: flex;
@@ -175,6 +178,8 @@ width: 71.19px;
   flex-direction: column;
   position: relative;
   min-width: 300px;
+  height: 406px;
+  justify-content: center;
 }
 
 .login-image {
@@ -245,11 +250,13 @@ margin-left: 20px;
 
 .logout-bar {
   display: flex;
+  justify-self: flex-end;
   justify-content: flex-end;
   align-items: center;
-  margin: 16px 40px;
+  margin: 16px 0px;
   /* width: 100%; */
   /* min-width: 1050px; */
+  margin-left: auto;
 }
 
 .logout-bar div {
@@ -267,7 +274,10 @@ margin-left: 20px;
   /* top: 13px; */
   /* width: 80%; */
   /* margin-right: 40px; */
-  margin: 28px 40px;
+  /* margin: 28px 40px; */
+  /* margin-top: 28px */
+  align-self: flex-end;
+  top: 12px;
 }
 
 .login-prompt {
@@ -382,17 +392,23 @@ button:hover {
 
 .show-page-top-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   width: 100%;
   height:130px;
   border-bottom: 1px solid lightgray;
   top: 0px;
+  /* flex: 1; */
 }
 
 .show-page-top-header div {
   position: relative;
   /* top: -10%; */
+  /* border: 1px solid black; */
+  /* flex: 1; */
+  display: flex;
+  /* justify-content: center; */
+
 }
 
 .show-page-logo-container {
@@ -401,6 +417,9 @@ button:hover {
   left: 2%;
   position: relative;
   margin-top: 16px;
+  margin-right: auto;
+  justify-self: flex-start;
+  flex: 1;
 }
 .show-page-logo-link {
   position: relative;
@@ -409,11 +428,21 @@ button:hover {
   width: 71.19px;
 }
 
+.show-page-search {
+  justify-self: center;
+  /* left: 0; */
+}
+
 .non-frontpage-login {
   position: relative;
-  min-width: 420px;
-  max-width: 420px;
+  /* min-width: 420px;
+  max-width: 420px; */
   /* top: 16px; */
+  margin-left: auto;
+  margin-right: 40px;
+  justify-self: flex-end;
+  justify-content: flex-end;
+  flex: 1;
 }
 
 .non-frontpage-login .login-button-list {
@@ -802,11 +831,14 @@ button:hover {
   position: relative;
   /* top: 20px; */
   /* right: -9.3%; */
+  right: 40px;
+  padding-bottom: 24px;
 }
 
 .header-box .logout-bar {
   position: relative;
   top: 20px;
+  right: 40px;
 }
 
 .header-box .login-button {
@@ -1095,7 +1127,7 @@ button:hover {
   overflow: hidden;
   /* border: 1px solid black; */
   border-radius: 50%;
-  right: 20px;
+  margin-right: 20px;
 }
 
 .header-profile img {
